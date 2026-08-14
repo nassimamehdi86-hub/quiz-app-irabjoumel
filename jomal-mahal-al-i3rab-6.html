@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>إعراب الجمل | دفتر القواعد الشامل</title>
+<meta name="description" content="دفتر القواعد الشامل: خرائط ذهنية، استماع لشرح الأستاذ، نشاط تفاعلي، واختبار شامل لدروس الجمل التي لها محلّ من الإعراب.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E2A44">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="إعراب الجمل">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Rakkas&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF7EC;
+    --grid:rgba(96,132,168,0.16);
+    --ink:#1E2A44;
+    --ink-soft:#4B5A78;
+    --pencil:#7A6A50;
+    --yellow: #FFE58A;
+    --green: #B7E8B0;
+    --pink: #FFC6DA;
+    --blue: #AFD4F2;
+    --orange:#FFCA9B;
+    --lilac: #D8C6F0;
+    --red-pen:#D6483F;
+    --green-pen:#2E8B57;
+    --purple-pen:#6E4FA3;
+    --blue-pen:#2F6FB0;
+    --gold: #D4AF6A;
+    --gold-light: #F0D9A8;
+    --navy-deep: #24344F;
+    --navy-mid: #33486B;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; scroll-behavior:smooth; }
+  body{
+    background:
+      radial-gradient(circle at 15% 0%, rgba(212,175,106,0.22), transparent 45%),
+      radial-gradient(circle at 100% 20%, rgba(212,175,106,0.15), transparent 48%),
+      radial-gradient(circle at 50% 100%, rgba(212,175,106,0.12), transparent 58%),
+      linear-gradient(160deg, var(--navy-deep) 0%, var(--navy-mid) 45%, var(--navy-deep) 100%);
+    background-attachment: fixed;
+    color:var(--ink);
+    font-family:'Cairo', sans-serif;
+    padding:0 14px 60px;
+    max-width:820px;
+    margin:0 auto;
+    min-height:100vh;
+  }
+  mark{ padding:1px 6px; border-radius:5px; font-weight:800; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+  mark.y{ background:var(--yellow); }
+  mark.g{ background:var(--green); }
+  mark.p{ background:var(--pink); }
+  mark.b{ background:var(--blue); }
+  mark.o{ background:var(--orange); }
+  mark.l{ background:var(--lilac); }
+
+  .navbar{
+    position:sticky; top:0; z-index:50; background:rgba(11,21,38,0.92); backdrop-filter:blur(6px);
+    display:flex; gap:6px; overflow-x:auto; padding:10px 0; margin:0 -14px 4px; padding-inline:14px;
+    border-bottom:1.5px solid rgba(212,175,106,0.3); -webkit-overflow-scrolling:touch;
+  }
+  .navbar a, .navbar button.nav-link{
+    flex-shrink:0; text-decoration:none; font-size:11.5px; font-weight:800; color:var(--ink);
+    background:#fff; border:1.5px solid var(--ink); border-radius:999px; padding:6px 13px; white-space:nowrap;
+    font-family:'Cairo'; cursor:pointer;
+  }
+  .navbar a:active, .navbar button.nav-link:active{ background:var(--yellow); }
+  .install-btn{
+    flex-shrink:0; display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:800; color:#1E2A44;
+    background:linear-gradient(135deg,#FFE58A,#E7C170); border:1.5px solid var(--ink); border-radius:999px;
+    padding:6px 14px; white-space:nowrap; cursor:pointer; font-family:'Cairo';
+  }
+  .install-btn.hide{ display:none; }
+  .install-toast{
+    position:fixed; left:14px; right:14px; bottom:16px; z-index:80; max-width:790px; margin:0 auto;
+    background:var(--ink); color:var(--paper); border-radius:14px; padding:12px 16px; font-size:12.5px;
+    display:none; align-items:center; justify-content:space-between; gap:10px; box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  }
+  .install-toast.show{ display:flex; }
+  .install-toast .it-text{ line-height:1.7; }
+  .install-toast .it-text b{ color:var(--yellow); }
+  .install-toast button{
+    flex-shrink:0; border:none; border-radius:999px; padding:8px 16px; font-family:'Cairo'; font-weight:800;
+    font-size:12px; cursor:pointer;
+  }
+  .install-toast .go{ background:var(--yellow); color:var(--ink); }
+  .install-toast .dismiss{ background:transparent; color:var(--paper); text-decoration:underline; }
+
+  .page-title{
+    text-align:center; font-family:'Rakkas', serif; font-size:16px; color:var(--gold-light);
+    letter-spacing:1.5px; margin:14px 0 6px; text-shadow:0 2px 10px rgba(0,0,0,0.4);
+  }
+  .page-sub{ text-align:center; font-size:12.5px; color:rgba(255,255,255,0.75); margin:0 0 20px; }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:10px 0 30px; }
+  .lesson-card{
+    position:relative; border-radius:18px; padding:20px 14px 16px; text-align:center; cursor:pointer;
+    font-family:'Cairo'; overflow:hidden; min-height:150px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,0.35);
+    box-shadow:
+      0 10px 0 rgba(0,0,0,0.18),
+      0 16px 24px rgba(0,0,0,0.30),
+      inset 0 2px 0 rgba(255,255,255,0.55),
+      inset 0 -10px 18px rgba(0,0,0,0.12);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .lesson-card::before{
+    content:''; position:absolute; inset:0; border-radius:18px; pointer-events:none;
+    background:linear-gradient(160deg, rgba(255,255,255,0.5), rgba(255,255,255,0) 40%);
+  }
+  .lesson-card:active{
+    transform:translateY(4px);
+    box-shadow:
+      0 4px 0 rgba(0,0,0,0.18),
+      0 6px 12px rgba(0,0,0,0.28),
+      inset 0 2px 0 rgba(255,255,255,0.5),
+      inset 0 -8px 14px rgba(0,0,0,0.14);
+  }
+  .lesson-card .lc-badge{
+    font-family:'Aref Ruqaa', serif; font-weight:700; font-size:30px; margin:0 auto 8px; line-height:1;
+    filter:drop-shadow(0 2px 3px rgba(0,0,0,0.25));
+  }
+  .lesson-card .lc-title{
+    font-weight:800; font-size:14px; color:var(--ink); position:relative; z-index:1;
+    text-shadow:0 1px 0 rgba(255,255,255,0.4);
+  }
+  .lesson-card .lc-desc{
+    font-size:11px; color:rgba(30,42,68,0.75); margin-top:5px; line-height:1.6; position:relative; z-index:1; font-weight:600;
+  }
+  .lesson-card .lc-progress{
+    margin-top:10px; font-size:10.5px; font-weight:800; color:var(--ink); position:relative; z-index:1;
+    background:rgba(255,255,255,0.55); border-radius:999px; padding:3px 10px; display:inline-block;
+  }
+  .lesson-card.soon{
+    opacity:.85; border-style:dashed; cursor:default; background:rgba(255,255,255,0.06) !important;
+    box-shadow:none; border:1.5px dashed rgba(255,255,255,0.3);
+  }
+  .lesson-card.soon .lc-title, .lesson-card.soon .lc-desc{ color:rgba(255,255,255,0.7); }
+  .lesson-card.soon:active{ transform:none; }
+
+  .results-panel{
+    background:#fff; border:2px solid var(--ink); border-radius:16px; padding:14px 16px 8px; margin:8px 0 30px;
+    box-shadow:5px 5px 0 rgba(30,42,68,0.12);
+  }
+  .results-title{
+    font-family:'Aref Ruqaa', serif; font-weight:700; font-size:16px; color:var(--ink); margin-bottom:10px; text-align:center;
+  }
+  .result-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:9px 4px; border-bottom:1px solid rgba(30,42,68,0.1);
+  }
+  .result-row:last-child{ border-bottom:none; }
+  .result-row .rr-name{ font-weight:800; font-size:12.5px; color:var(--ink); }
+  .result-row .rr-score{
+    font-weight:800; font-size:12.5px; border-radius:999px; padding:4px 12px; white-space:nowrap;
+  }
+  .rr-score.good{ background:var(--green); color:#1c5c36; }
+  .rr-score.mid{ background:var(--yellow); color:#7a5b12; }
+  .rr-score.low{ background:var(--pink); color:#9c2f47; }
+  .rr-score.none{ background:#eee; color:#888; font-weight:700; font-size:11.5px; }
+
+  .lesson-topbar{ display:flex; align-items:center; gap:10px; margin:10px 0 4px; }
+  .back-btn{
+    flex-shrink:0; display:flex; align-items:center; gap:5px; background:#fff; border:1.5px solid var(--ink);
+    border-radius:999px; padding:7px 14px; font-family:'Cairo'; font-weight:800; font-size:12.5px; color:var(--ink); cursor:pointer;
+  }
+  .back-btn:active{ background:var(--yellow); }
+
+  .hub{ text-align:center; margin:6px auto 8px; position:relative; }
+  .hub .badge{
+    display:inline-block; background:var(--paper); border:3px solid var(--ink);
+    border-radius:50%; width:170px; height:170px; padding-top:38px;
+    box-shadow:6px 6px 0 rgba(30,42,68,0.12); transform:rotate(-2deg);
+  }
+  .hub .badge b{ display:block; font-family:'Aref Ruqaa', serif; font-weight:700; font-size:24px; color:var(--ink); }
+  .hub .badge span{ display:block; font-size:11px; color:var(--ink-soft); margin-top:8px; padding:0 16px; line-height:1.6; }
+  .hub-def{
+    max-width:520px; margin:14px auto 0; text-align:center; font-size:14px; line-height:2; color:var(--ink);
+    background:#fff; border:2px solid var(--ink); border-radius:14px; padding:14px 18px;
+    box-shadow:4px 4px 0 rgba(30,42,68,0.15);
+  }
+  .hub-def b{ color:var(--ink); }
+
+  .speak-btn{
+    width:28px; height:28px; border-radius:50%; border:2px solid var(--ink); background:#fff;
+    display:inline-flex; align-items:center; justify-content:center; font-size:12px; cursor:pointer;
+    box-shadow:2px 2px 0 rgba(30,42,68,0.15); flex-shrink:0;
+  }
+  .speak-btn.speaking{ background:var(--yellow); }
+  .hub-speak{ margin:10px auto 0; }
+
+  .listen-wrap{
+    background:#fff; border:2px solid var(--ink); border-radius:16px; padding:16px;
+    box-shadow:5px 5px 0 rgba(30,42,68,0.10); margin:26px 0 22px;
+  }
+  .listen-title{
+    display:flex; align-items:center; gap:8px; font-family:'Aref Ruqaa', serif; font-weight:700; font-size:18px;
+    margin-bottom:8px;
+  }
+  .video-frame{
+    position:relative; width:100%; padding-top:56.25%;
+    border-radius:12px; overflow:hidden; border:1.5px solid rgba(30,42,68,0.25); background:#000;
+  }
+  .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .video-tabs{ display:flex; gap:8px; margin-bottom:10px; }
+  .video-tab{
+    flex:1; text-align:center; padding:8px 6px; border-radius:10px; border:1.5px solid var(--ink);
+    background:#fff; font-weight:800; font-size:12.5px; cursor:pointer; color:var(--ink);
+  }
+  .video-tab.active{ background:var(--ink); color:#fff; }
+
+  .mm-title{ text-align:center; font-family:'Aref Ruqaa', serif; font-weight:700; font-size:20px; margin:36px 0 4px; }
+  .mm-hint{ text-align:center; font-size:11.5px; color:var(--ink-soft); margin-bottom:16px; }
+  .mm-wrap{ margin:10px 0 8px; }
+  .mm-root{ display:flex; justify-content:center; margin-bottom:16px; }
+  .mm-root-box{
+    background:var(--ink); color:var(--paper); border-radius:16px; padding:14px 26px; text-align:center;
+    box-shadow:5px 5px 0 rgba(30,42,68,0.18);
+  }
+  .mm-root-box b{ display:block; font-family:'Aref Ruqaa', serif; font-size:22px; }
+  .mm-root-box span{ display:block; font-size:11px; margin-top:6px; opacity:.88; max-width:280px; line-height:1.8; }
+
+  .mm-branches{ display:flex; flex-direction:column; gap:12px; position:relative; padding-right:20px; border-right:3px dashed rgba(30,42,68,0.3); margin-right:8px; }
+  .mm-branch{ background:#fff; border:2px solid var(--ink); border-radius:12px; position:relative; overflow:hidden; }
+  .mm-branch::before{ content:''; position:absolute; right:-20px; top:21px; width:17px; height:2px; background:rgba(30,42,68,0.3); }
+  .mm-branch summary{ list-style:none; cursor:pointer; padding:11px 14px; display:flex; align-items:center; justify-content:space-between; gap:8px; font-family:'Cairo'; font-weight:800; font-size:13px; }
+  .mm-branch summary::-webkit-details-marker{ display:none; }
+  .mm-branch .chev{ font-size:11px; transition:transform .2s; flex-shrink:0; }
+  .mm-branch:not([open]) .chev{ transform:rotate(-90deg); }
+
+  .mm-branch.c-blue summary{ background:var(--blue); }
+  .mm-branch.c-blue{ border-color:var(--blue-pen); }
+  .mm-branch.c-green summary{ background:var(--green); }
+  .mm-branch.c-green{ border-color:var(--green-pen); }
+  .mm-branch.c-purple summary{ background:var(--lilac); }
+  .mm-branch.c-purple{ border-color:var(--purple-pen); }
+  .mm-branch.c-orange summary{ background:var(--orange); }
+  .mm-branch.c-orange{ border-color:var(--red-pen); }
+  .mm-branch.c-gold summary{ background:linear-gradient(135deg,#FFE58A,#E7C170); }
+  .mm-branch.c-gold{ border-color:#B08B2E; }
+  .mm-branch.c-teal summary{ background:#A9E5DC; }
+  .mm-branch.c-teal{ border-color:#1D8C7A; }
+  .mm-branch.c-brown summary{ background:#E3C6A8; }
+  .mm-branch.c-brown{ border-color:#8B5A2B; }
+
+  .mm-branch-body{ padding:14px 14px 16px; }
+
+  .mm-rule{
+    position:relative; font-size:13.5px; font-weight:700; line-height:2.05;
+    padding:12px 14px; border-radius:4px 18px 18px 18px; margin-bottom:10px;
+    border:2.5px solid var(--ink); box-shadow:3px 3px 0 rgba(30,42,68,0.12);
+  }
+  .mm-rule::before{ content:'💡'; position:absolute; top:-13px; right:12px; font-size:16px; background:#fff; border-radius:50%; padding:2px 5px; border:2px solid var(--ink); line-height:1; }
+  .mm-rule b{ font-weight:800; }
+  .mm-example{
+    position:relative; font-size:12.5px; font-weight:600; line-height:1.9;
+    padding:10px 14px 10px 14px; border-radius:18px 4px 18px 18px; margin-top:2px;
+    border:2px dashed var(--ink-soft); background:#fff;
+  }
+  .mm-example::before{ content:'✏️ مثال:'; display:block; font-size:10.5px; font-weight:800; margin-bottom:4px; opacity:.85; }
+  .mm-example b{ font-weight:800; }
+
+  .mm-summary-list{ font-size:13px; line-height:2.3; font-weight:700; }
+  .mm-summary-list b{ display:inline-block; padding:1px 9px; border-radius:999px; background:#B08B2E; color:#fff; font-weight:800; margin-inline-end:4px; }
+
+  .mm-branch.c-blue .mm-rule{ background:#E4F1FC; border-color:var(--blue-pen); color:#0f3a63; }
+  .mm-branch.c-blue .mm-example{ border-color:var(--blue-pen); color:#0f3a63; }
+  .mm-branch.c-green .mm-rule{ background:#E4F8E2; border-color:var(--green-pen); color:#144a2c; }
+  .mm-branch.c-green .mm-example{ border-color:var(--green-pen); color:#144a2c; }
+  .mm-branch.c-purple .mm-rule{ background:#F1E9FB; border-color:var(--purple-pen); color:#3d215e; }
+  .mm-branch.c-purple .mm-example{ border-color:var(--purple-pen); color:#3d215e; }
+  .mm-branch.c-orange .mm-rule{ background:#FDEBE0; border-color:var(--red-pen); color:#7a1f18; }
+  .mm-branch.c-orange .mm-example{ border-color:var(--red-pen); color:#7a1f18; }
+  .mm-branch.c-gold .mm-rule{ background:#FFF6DC; border-color:#B08B2E; color:#5c4413; }
+  .mm-branch.c-gold .mm-example{ border-color:#B08B2E; color:#5c4413; }
+  .mm-branch.c-teal .mm-rule{ background:#E1F7F3; border-color:#1D8C7A; color:#0e4941; }
+  .mm-branch.c-teal .mm-example{ border-color:#1D8C7A; color:#0e4941; }
+  .mm-branch.c-brown .mm-rule{ background:#F5E9DC; border-color:#8B5A2B; color:#4a3016; }
+  .mm-branch.c-brown .mm-example{ border-color:#8B5A2B; color:#4a3016; }
+
+  .mm-children{ display:flex; flex-direction:column; gap:10px; margin-top:12px; padding-right:18px; border-right:3px dashed rgba(30,42,68,0.3); }
+  .mm-leaf{ background:#fff; border:2.5px solid rgba(30,42,68,0.3); border-radius:14px; padding:11px 14px; position:relative; box-shadow:2px 2px 0 rgba(30,42,68,0.08); }
+  .mm-leaf::before{ content:''; position:absolute; right:-18px; top:17px; width:15px; height:3px; background:rgba(30,42,68,0.3); }
+  .mm-leaf-title{ font-weight:800; font-size:12.5px; margin-bottom:6px; display:inline-block; padding:3px 12px; border-radius:999px; color:#fff; }
+  .mm-leaf-rule{ font-size:12.3px; font-weight:700; line-height:1.95; margin-top:4px; }
+  .mm-leaf-example{ font-size:11.8px; font-weight:600; margin-top:7px; border-top:1.5px dashed rgba(30,42,68,0.25); padding-top:6px; }
+  .mm-leaf-example b{ font-weight:800; }
+
+  .mm-branch.c-blue .mm-leaf{ border-color:var(--blue-pen); }
+  .mm-branch.c-blue .mm-leaf-title{ background:var(--blue-pen); }
+  .mm-branch.c-blue .mm-leaf-rule, .mm-branch.c-blue .mm-leaf-example{ color:#0f3a63; }
+  .mm-branch.c-green .mm-leaf{ border-color:var(--green-pen); }
+  .mm-branch.c-green .mm-leaf-title{ background:var(--green-pen); }
+  .mm-branch.c-green .mm-leaf-rule, .mm-branch.c-green .mm-leaf-example{ color:#144a2c; }
+  .mm-branch.c-purple .mm-leaf{ border-color:var(--purple-pen); }
+  .mm-branch.c-purple .mm-leaf-title{ background:var(--purple-pen); }
+  .mm-branch.c-purple .mm-leaf-rule, .mm-branch.c-purple .mm-leaf-example{ color:#3d215e; }
+  .mm-branch.c-orange .mm-leaf{ border-color:var(--red-pen); }
+  .mm-branch.c-orange .mm-leaf-title{ background:var(--red-pen); }
+  .mm-branch.c-orange .mm-leaf-rule, .mm-branch.c-orange .mm-leaf-example{ color:#7a1f18; }
+  .mm-branch.c-gold .mm-leaf{ border-color:#B08B2E; }
+  .mm-branch.c-gold .mm-leaf-title{ background:#B08B2E; }
+  .mm-branch.c-gold .mm-leaf-rule, .mm-branch.c-gold .mm-leaf-example{ color:#5c4413; }
+  .mm-branch.c-teal .mm-leaf{ border-color:#1D8C7A; }
+  .mm-branch.c-teal .mm-leaf-title{ background:#1D8C7A; }
+  .mm-branch.c-teal .mm-leaf-rule, .mm-branch.c-teal .mm-leaf-example{ color:#0e4941; }
+  .mm-branch.c-brown .mm-leaf{ border-color:#8B5A2B; }
+  .mm-branch.c-brown .mm-leaf-title{ background:#8B5A2B; }
+  .mm-branch.c-brown .mm-leaf-rule, .mm-branch.c-brown .mm-leaf-example{ color:#4a3016; }
+
+  .ex-title{ text-align:center; font-family:'Aref Ruqaa', serif; font-weight:700; font-size:22px; margin:40px 0 6px; color:var(--ink); }
+  .ex-sub{ text-align:center; font-size:12.5px; color:var(--ink-soft); margin-bottom:18px; }
+  .ex-list{ display:flex; flex-direction:column; gap:12px; }
+  .ex-card{ background:#fff; border:2px solid var(--ink); border-radius:14px; padding:14px 16px; box-shadow:4px 4px 0 rgba(30,42,68,0.08); }
+
+  .score-badge{ text-align:center; font-weight:800; font-size:12.5px; color:var(--ink-soft); margin:2px 0 16px; }
+  .score-badge b{ color:var(--green-pen); }
+
+  .exam-window{
+    background:#fff; border:2.5px solid var(--ink); border-radius:16px;
+    padding:0 16px 22px; margin:26px 0 22px; box-shadow:6px 6px 0 rgba(30,42,68,0.10);
+    position:relative;
+  }
+  .exam-window-header{
+    background:var(--ink); color:var(--paper); font-family:'Aref Ruqaa', serif; font-weight:700; font-size:19px;
+    margin:0 -16px 6px; padding:12px 40px; border-radius:14px 14px 0 0; text-align:center;
+  }
+  .exam-window .ex-title{ margin:0; }
+
+  .exam-menu-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px; }
+  .exam-menu-btn{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+    background:var(--paper); border:2px solid var(--ink); border-radius:14px; padding:16px 8px;
+    font-family:'Cairo'; font-weight:800; font-size:14px; color:var(--ink); cursor:pointer;
+    box-shadow:4px 4px 0 rgba(30,42,68,0.10); text-align:center;
+  }
+  .exam-menu-btn:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 rgba(30,42,68,0.10); }
+  .exam-menu-btn span{ font-size:11.5px; font-weight:600; color:var(--ink-soft); }
+  .exam-menu-btn.final-menu-btn{ grid-column:1 / -1; background:linear-gradient(135deg,#FFE58A,#E7C170); }
+
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(30,42,68,0.6); z-index:200;
+    display:none; align-items:flex-start; justify-content:center;
+    padding:16px 12px; overflow-y:auto; -webkit-overflow-scrolling:touch;
+  }
+  .modal-overlay.show{ display:flex; }
+  .modal-overlay .exam-window{ width:100%; max-width:720px; margin:14px auto; max-height:none; }
+  .modal-close{
+    position:absolute; top:10px; left:10px; z-index:5; width:30px; height:30px; border-radius:50%;
+    border:2px solid var(--paper); background:rgba(255,255,255,0.15); color:var(--paper);
+    font-size:14px; font-weight:800; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .modal-close:active{ background:rgba(255,255,255,0.3); }
+
+  .student-card{
+    background:#fff; border:2px dashed var(--ink); border-radius:14px; padding:14px 16px; margin:18px 0 6px;
+    box-shadow:4px 4px 0 rgba(30,42,68,0.08);
+  }
+  .student-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .student-label{ font-weight:800; font-size:13.5px; white-space:nowrap; }
+  #studentName{
+    flex:1; min-width:150px; font-family:'Cairo'; font-size:14px; padding:9px 12px; border-radius:9px;
+    border:1.5px solid rgba(30,42,68,0.3); background:var(--paper); color:var(--ink);
+  }
+  #studentName:focus{ outline:none; border-color:var(--blue-pen); }
+  .student-history{ margin-top:10px; font-size:12px; color:var(--ink-soft); line-height:1.8; }
+  .student-history b{ color:var(--green-pen); }
+
+  .finish-btn{
+    display:block; width:100%; border:none; border-radius:12px; padding:14px; font-family:'Cairo';
+    font-weight:800; font-size:15px; background:linear-gradient(135deg,#FFE58A,#E7C170); color:var(--ink);
+    cursor:pointer; box-shadow:3px 3px 0 rgba(30,42,68,0.15); margin-top:6px;
+  }
+  .finish-btn:active{ transform:translateY(1px); }
+  .final-result{ margin-top:18px; text-align:center; display:none; }
+  .final-result.show{ display:block; }
+  .overall-circle{
+    width:130px; height:130px; border-radius:50%; border:4px solid var(--ink); margin:0 auto 14px;
+    display:flex; align-items:center; justify-content:center; font-family:'Aref Ruqaa', serif; font-size:32px;
+    font-weight:700; background:var(--paper); box-shadow:5px 5px 0 rgba(30,42,68,0.12);
+  }
+  .breakdown{ text-align:right; max-width:340px; margin:0 auto 14px; font-size:13px; line-height:2.1; color:var(--ink-soft); }
+  .breakdown div{ border-bottom:1px dashed rgba(30,42,68,0.15); padding:4px 0; }
+  .delta{ font-weight:800; font-size:13px; border-radius:10px; padding:10px 14px; max-width:420px; margin:0 auto; line-height:1.8; }
+  .delta.up{ background:rgba(183,232,176,0.4); color:var(--green-pen); }
+  .delta.down{ background:rgba(255,198,218,0.35); color:var(--red-pen); }
+  .delta.same{ background:rgba(175,212,242,0.35); color:var(--blue-pen); }
+  .delta.first{ background:rgba(216,198,240,0.35); color:var(--purple-pen); }
+
+  .fill-row{ display:flex; gap:8px; align-items:center; margin-top:10px; flex-wrap:wrap; }
+  .fill-row input{
+    flex:1; min-width:120px; font-family:'Cairo'; font-size:14px; padding:9px 12px; border-radius:9px;
+    border:1.5px solid rgba(30,42,68,0.3); background:var(--paper); color:var(--ink);
+  }
+  .fill-row input:focus{ outline:none; border-color:var(--blue-pen); }
+  .fill-row input.ok{ border-color:var(--green-pen); background:rgba(183,232,176,0.35); }
+  .fill-row input.bad{ border-color:var(--red-pen); background:rgba(255,198,218,0.28); }
+  .fill-row button{
+    flex-shrink:0; border:none; background:var(--ink); color:var(--paper); font-family:'Cairo'; font-weight:800;
+    font-size:12.5px; padding:9px 16px; border-radius:9px; cursor:pointer;
+  }
+  .mic-blank-btn{
+    flex-shrink:0; border:none; background:linear-gradient(135deg,#5eb4a0,#3d8c7a); color:#08201a; font-family:'Cairo'; font-weight:800;
+    font-size:14px; padding:9px 12px; border-radius:9px; cursor:pointer; line-height:1;
+  }
+  .mic-blank-btn.recording{ background:linear-gradient(135deg,#e05252,#a92f2f); color:#fff; }
+  .mic-blank-btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .act-revealall-wrap{ margin-top:6px; }
+  .act-revealall-wrap .act-reveal-btn{ font-size:13.5px; padding:13px; }
+  .act-revealall-wrap .act-reveal-btn.active{ background:rgba(216,198,240,0.45); }
+  .fill-feedback{ margin-top:8px; font-size:12.5px; line-height:1.9; color:var(--ink-soft); display:none; }
+  .fill-feedback.show{ display:block; }
+  .fill-feedback b{ color:var(--ink); }
+
+  .act-reminder{
+    background:rgba(255,198,218,0.28); border:1.5px dashed var(--red-pen); border-radius:12px;
+    padding:10px 14px; font-size:12.5px; line-height:2; color:var(--ink); margin-bottom:16px;
+  }
+  .act-reminder b{ color:var(--red-pen); }
+  .act-card{ background:#fff; border:2px solid var(--ink); border-radius:14px; padding:14px 16px 16px; box-shadow:4px 4px 0 rgba(30,42,68,0.08); }
+  .act-card .qn{ display:flex; gap:10px; align-items:flex-start; margin-bottom:8px; }
+  .act-card .num{ flex-shrink:0; width:28px; height:28px; border-radius:50%; background:var(--pink); color:var(--red-pen); border:2px solid var(--red-pen); display:flex; align-items:center; justify-content:center; font-size:12.5px; font-weight:800; }
+  .act-card .task{ font-size:13.5px; font-weight:700; color:var(--ink-soft); line-height:1.8; }
+  .act-text{
+    background:var(--paper); border:1.5px solid rgba(30,42,68,0.2); border-radius:10px;
+    padding:10px 14px; font-size:15px; font-weight:700; line-height:2; margin:8px 0 12px; text-align:center;
+  }
+  .act-blank{ margin-top:10px; }
+  .act-blank .blabel{ font-size:12px; font-weight:800; color:var(--ink-soft); margin-bottom:5px; }
+  .act-chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+  .act-chip{
+    border:1.5px solid rgba(30,42,68,0.3); background:var(--paper); color:var(--ink); font-family:'Cairo';
+    font-weight:700; font-size:12px; padding:6px 12px; border-radius:999px; cursor:pointer;
+  }
+  .act-chip.correct{ border-color:var(--green-pen); background:rgba(183,232,176,0.45); }
+  .act-chip.wrong{ border-color:var(--red-pen); background:rgba(255,198,218,0.4); }
+  .act-chip:disabled{ cursor:default; opacity:.85; }
+  .act-reveal-btn{
+    display:block; width:100%; margin-top:12px; border:1.5px dashed var(--purple-pen); background:rgba(216,198,240,0.2);
+    color:var(--purple-pen); font-family:'Cairo'; font-weight:800; font-size:12.5px; padding:10px; border-radius:10px; cursor:pointer;
+  }
+  .act-reveal-btn:active{ background:rgba(216,198,240,0.4); }
+  .act-answer{
+    display:none; margin-top:10px; background:rgba(183,232,176,0.22); border:1.5px solid var(--green-pen);
+    border-radius:10px; padding:10px 14px; font-size:13px; line-height:2.1; color:var(--ink);
+  }
+  .act-answer.show{ display:block; }
+  .act-answer b{ color:var(--green-pen); }
+
+  footer{ text-align:center; font-size:11.5px; color:var(--pencil); margin-top:40px; }
+
+  #lessonView{ display:none; }
+
+  /* ===== الاختبار الشامل ===== */
+  #examFullView{ display:none; }
+  #examFull2View{ display:none; }
+  .exam-full-launch{
+    display:flex; align-items:center; gap:12px; background:linear-gradient(135deg,#FFE58A,#E7C170);
+    border:2px solid var(--ink); border-radius:18px; padding:16px 18px; margin:4px 0 22px; cursor:pointer;
+    box-shadow:5px 5px 0 rgba(30,42,68,0.18); font-family:'Cairo';
+  }
+  .exam-full-launch .efl-icon{ font-size:32px; flex-shrink:0; }
+  .exam-full-launch .efl-title{ font-weight:800; font-size:15px; color:var(--ink); }
+  .exam-full-launch .efl-sub{ font-size:11.5px; color:rgba(30,42,68,0.75); margin-top:3px; font-weight:600; }
+  .exam-full-progress{
+    text-align:center; font-family:'Cairo'; font-weight:800; font-size:13px; color:#fff;
+    background:rgba(0,0,0,0.25); border-radius:999px; padding:6px 14px; display:inline-block; margin:0 auto 14px;
+  }
+  .exam-full-progress-wrap{ text-align:center; margin-bottom:10px; }
+  .exam-full-scorebar{
+    text-align:center; font-family:'Cairo'; font-weight:800; font-size:12.5px; color:var(--gold-light); margin-bottom:10px;
+  }
+  .exam-full-dots{
+    display:flex; flex-wrap:wrap; gap:5px; justify-content:center; margin:0 auto 16px; max-width:340px;
+  }
+  .ef-dot{
+    width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.25); flex-shrink:0;
+  }
+  .ef-dot.correct{ background:var(--green-pen); }
+  .ef-dot.wrong{ background:var(--red-pen); }
+  .ef-dot.current{ outline:2px solid var(--gold-light); outline-offset:1px; }
+  .efc-mic-btn{
+    border:none; border-radius:12px; padding:14px; font-family:'Cairo'; font-weight:800; font-size:14.5px;
+    cursor:pointer; background:linear-gradient(135deg,#E86A6A,#C94848); color:#fff;
+  }
+  .efc-mic-btn.recording{ background:linear-gradient(135deg,#ff3b3b,#b02020); animation:pulseMic 1s infinite; }
+  @keyframes pulseMic{ 0%,100%{ box-shadow:0 0 0 0 rgba(255,59,59,0.5);} 50%{ box-shadow:0 0 0 10px rgba(255,59,59,0);} }
+  .efc-no-mic{
+    display:none; text-align:center; font-family:'Cairo'; font-weight:700; font-size:12.5px; color:#9c2f47;
+    background:rgba(255,198,218,0.3); border:1.5px dashed #C94848; border-radius:12px; padding:12px 14px;
+  }
+  .efc-no-mic.show{ display:block; }
+  .efc-heard{
+    display:none; margin-top:12px; font-size:12.5px; color:rgba(30,42,68,0.7); text-align:center; font-weight:600;
+  }
+  .efc-heard.show{ display:block; }
+  .efc-verdict{
+    display:none; margin-top:10px; text-align:center; font-family:'Cairo'; font-weight:800; font-size:15px; border-radius:10px; padding:8px;
+  }
+  .efc-verdict.show{ display:block; }
+  .efc-verdict.ok{ background:rgba(183,232,176,0.35); color:#1c5c36; }
+  .efc-verdict.no{ background:rgba(255,198,218,0.35); color:#9c2f47; }
+  .efc-hint{
+    display:none; margin-top:10px; background:rgba(255,202,155,0.3); border:1.5px dashed #C97A3D;
+    border-radius:12px; padding:10px 14px; font-size:12.5px; line-height:1.9; color:var(--ink); text-align:center; font-weight:700;
+  }
+  .efc-hint.show{ display:block; }
+  .exam-full-card{
+    background:#fff; border:2px solid var(--ink); border-radius:18px; padding:22px 18px 18px; margin:0 0 16px;
+    box-shadow:6px 6px 0 rgba(30,42,68,0.15); min-height:150px;
+  }
+  .efc-tag{
+    display:inline-block; background:var(--lilac); color:var(--ink); font-weight:800; font-size:11px;
+    border-radius:999px; padding:3px 12px; margin-bottom:12px;
+  }
+  .efc-question{
+    font-size:16px; line-height:2.3; color:var(--ink); text-align:center; font-weight:700;
+  }
+  .efc-question mark{ padding:1px 6px; border-radius:5px; font-weight:800; }
+  .efc-answer{
+    display:none; margin-top:16px; background:rgba(183,232,176,0.25); border:1.5px solid var(--green-pen);
+    border-radius:12px; padding:12px 16px; font-size:13.5px; line-height:2; color:var(--ink); text-align:center; font-weight:700;
+  }
+  .efc-answer.show{ display:block; }
+  .efc-answer b{ color:var(--green-pen); }
+  .exam-full-controls{ display:flex; flex-direction:column; gap:10px; margin-top:4px; }
+  .efc-reveal-btn{
+    border:1.5px solid var(--ink); border-radius:12px; padding:11px; font-family:'Cairo'; font-weight:700; font-size:12.5px;
+    cursor:pointer; background:#fff; color:var(--ink); opacity:0.85;
+  }
+  .efc-self-check{ display:none; gap:10px; }
+  .efc-self-check.show{ display:flex; }
+  .efc-self-btn{
+    flex:1; border:1.5px solid var(--ink); border-radius:12px; padding:11px; font-family:'Cairo'; font-weight:800;
+    font-size:13px; cursor:pointer; background:#fff; color:var(--ink);
+  }
+  .efc-self-btn.ok{ border-color:var(--green-pen); color:#1c5c36; }
+  .efc-self-btn.ok:active{ background:rgba(183,232,176,0.5); }
+  .efc-self-btn.no{ border-color:var(--red-pen); color:#9c2f47; }
+  .efc-self-btn.no:active{ background:rgba(255,198,218,0.5); }
+  .exam-full-nav{ display:flex; justify-content:center; margin-top:6px; }
+  .efc-next-btn{
+    border:1.5px solid var(--ink); background:#fff; border-radius:999px; padding:9px 22px; font-family:'Cairo';
+    font-weight:800; font-size:12.5px; cursor:pointer; color:var(--ink); display:none;
+  }
+  .efc-next-btn.show{ display:inline-block; }
+  .exam-full-final{
+    display:none; background:#fff; border:2px solid var(--ink); border-radius:18px; padding:24px 18px; text-align:center;
+    box-shadow:6px 6px 0 rgba(30,42,68,0.15);
+  }
+  .exam-full-final.show{ display:block; }
+  .exam-full-final .eff-circle{
+    width:120px; height:120px; border-radius:50%; border:5px solid var(--purple-pen); margin:0 auto 14px;
+    display:flex; align-items:center; justify-content:center; font-family:'Aref Ruqaa', serif; font-size:26px;
+    font-weight:700; color:var(--purple-pen);
+  }
+  .exam-full-final .eff-text{ font-size:13.5px; font-weight:700; color:var(--ink); line-height:1.9; }
+  .efc-restart-btn{
+    margin-top:16px; border:none; border-radius:12px; padding:12px 20px; font-family:'Cairo'; font-weight:800;
+    font-size:13px; cursor:pointer; background:linear-gradient(135deg,#FFE58A,#E7C170); color:var(--ink);
+  }
+</style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <button class="nav-link" data-go-home>🏠 الرئيسية</button>
+    <button class="nav-link" id="navMindmap" style="display:none">🗺️ الخريطة الذهنية</button>
+    <button class="nav-link" id="navListen" style="display:none">🎧 استمع للدرس</button>
+    <button class="nav-link" data-modal="actModal" style="display:none" id="navAct">🧩 النشاط</button>
+    <button class="nav-link" data-modal="finalModal" style="display:none" id="navFinal">🏁 نتيجتي</button>
+    <button class="install-btn" id="installBtn">📲 تثبيت التطبيق</button>
+  </nav>
+
+  <div class="install-toast" id="installToast">
+    <span class="it-text" id="installToastText">📲 ثبّتي «إعراب الجمل» على شاشتك الرئيسية لفتحه كأي تطبيق آخر</span>
+    <span style="display:flex; gap:8px; flex-shrink:0">
+      <button class="go" id="installToastGo">تثبيت</button>
+      <button class="dismiss" id="installToastClose">لاحقًا</button>
+    </span>
+  </div>
+
+  <!-- ============ HOME VIEW ============ -->
+  <div id="homeView">
+    <div class="page-title">— الجمل التي لها محلّ من الإعراب —</div>
+    <p class="page-sub">اختر الدرس الذي تريد مراجعته 👇 كل درس يحتوي على خريطة ذهنية، شرح مسموع (عند توفره)، ونشاط تفاعلي شامل</p>
+    <div class="student-card" id="studentCard">
+      <div class="student-row">
+        <span class="student-label">👤 اسم التلميذ(ة):</span>
+        <input type="text" id="studentName" placeholder="اكتب اسمك هنا لتُحفظ نتائجك...">
+      </div>
+    </div>
+    <div class="lesson-grid" id="lessonGrid"></div>
+
+    <div class="exam-full-launch" id="examFullLaunch">
+      <div class="efl-icon">🏆</div>
+      <div>
+        <div class="efl-title">الاختبار الشامل لكل الدروس</div>
+        <div class="efl-sub">أجب شفهيًا عن كل سؤال، ثم اضغط لإظهار الإجابة الصحيحة ومقارنتها</div>
+      </div>
+    </div>
+
+    <div class="exam-full-launch" id="examFull2Launch">
+      <div class="efl-icon">📗</div>
+      <div>
+        <div class="efl-title">إعراب 100 جملة</div>
+        <div class="efl-sub">اختبار شامل ثانٍ: أجب شفهيًا عن 101 جملة، وعند الخطأ تظهر لك الإجابة الصحيحة فورًا</div>
+      </div>
+    </div>
+
+    <div class="results-panel" id="resultsPanel">
+      <div class="results-title">📊 نتائجي في كل درس</div>
+      <div id="resultsList"></div>
+    </div>
+  </div>
+
+  <!-- ============ LESSON VIEW ============ -->
+  <div id="lessonView">
+    <div class="lesson-topbar">
+      <button class="back-btn" data-go-home>→ رجوع للرئيسية</button>
+    </div>
+
+    <div class="hub">
+      <div class="badge" id="lvBadge">
+        <b id="lvTitle"></b>
+        <span id="lvSubtitle"></span>
+      </div>
+    </div>
+    <p class="hub-def" id="lvDef"></p>
+    <div class="hub-speak" style="text-align:center">
+      <button class="speak-btn" id="hubSpeakBtn" title="استمع للتعريف">🔊</button>
+    </div>
+
+    <!-- ============ LISTEN ============ -->
+    <div id="listen" class="listen-wrap">
+      <div class="listen-title">🎧 استمع لشرح الأستاذ الكامل</div>
+      <div class="video-tabs" id="videoTabs" style="display:none"></div>
+      <div class="video-frame">
+        <iframe id="lvVideo" src="" title="شرح الدرس" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- ============ MIND MAP ============ -->
+    <div id="mindmap">
+      <div class="mm-title">🗺️ الخريطة الذهنية للدرس</div>
+      <p class="mm-hint">اضغط على أي عنوان لفتح/طي تفاصيله — رتّبنا القواعد من الأهم إلى التفاصيل لتسهيل الحفظ</p>
+      <div class="mm-wrap" id="mmWrap"></div>
+    </div>
+
+    <!-- ============ EXERCISES MENU ============ -->
+    <div class="exam-window">
+      <div class="exam-window-header">🎯 النشاط والاختبار</div>
+      <p class="ex-sub">اضغط على النشاط لفتحه في نافذة مستقلة، وأغلقه بزر ✕ عند الانتهاء</p>
+      <div class="exam-menu-grid">
+        <button class="exam-menu-btn" id="menuAct" style="grid-column:1 / -1" data-modal="actModal">🧩 النشاط<span>أجب شفهيًا أو اختر/اكتب الإجابة الصحيحة</span></button>
+        <button class="exam-menu-btn final-menu-btn" id="menuFinal" data-modal="finalModal">🏁 نتيجتي النهائية<span>بعد إتمام النشاط</span></button>
+      </div>
+    </div>
+
+    <div class="student-card" id="lessonStudentCard">
+      <div class="student-history" id="studentHistory">لا توجد محاولات سابقة بعد — اكتب اسمك وابدأ النشاط! 🌱</div>
+    </div>
+  </div>
+
+  <!-- ============ COMPREHENSIVE EXAM VIEW ============ -->
+  <div id="examFullView">
+    <div class="lesson-topbar">
+      <button class="back-btn" data-go-home>→ رجوع للرئيسية</button>
+    </div>
+    <div class="page-title" style="margin-top:14px">🏆 الاختبار الشامل</div>
+    <p class="page-sub">اضغط 🎙️ وأجب شفهيًا، سأستمع إليك وأتحقق من إجابتك تلقائيًا</p>
+
+    <div class="exam-full-progress-wrap">
+      <span class="exam-full-progress" id="efProgress">السؤال 1 / 61</span>
+    </div>
+    <div class="exam-full-scorebar" id="efScorebar">✅ 0 &nbsp;|&nbsp; ❌ 0</div>
+    <div class="exam-full-dots" id="efDots"></div>
+
+    <div class="exam-full-card" id="efCard">
+      <div class="efc-tag" id="efTag"></div>
+      <div class="efc-question" id="efQuestion"></div>
+      <div class="efc-heard" id="efHeard"></div>
+      <div class="efc-verdict" id="efVerdict"></div>
+      <div class="efc-answer" id="efAnswer"></div>
+      <div class="efc-hint" id="efHint"></div>
+    </div>
+
+    <div class="exam-full-controls">
+      <button class="efc-mic-btn" id="efMicBtn">🎙️ سجّل إجابتك الآن</button>
+      <div class="efc-no-mic" id="efNoMic">⚠️ متصفحك لا يدعم التعرّف على الصوت. جرّب متصفح Chrome لاستخدام هذا الاختبار.</div>
+      <div class="exam-full-nav">
+        <button class="efc-next-btn" id="efNextBtn">السؤال التالي ←</button>
+      </div>
+    </div>
+
+    <div class="exam-full-final" id="efFinal">
+      <div class="eff-circle" id="effCircle"></div>
+      <div class="eff-text" id="effText"></div>
+      <button class="efc-restart-btn" id="efRestartBtn">🔄 إعادة الاختبار</button>
+    </div>
+  </div>
+
+  <!-- ============ COMPREHENSIVE EXAM VIEW 2: إعراب 100 جملة ============ -->
+  <div id="examFull2View">
+    <div class="lesson-topbar">
+      <button class="back-btn" data-go-home>→ رجوع للرئيسية</button>
+    </div>
+    <div class="page-title" style="margin-top:14px">📗 إعراب 100 جملة</div>
+    <p class="page-sub">اضغط 🎙️ وأجب شفهيًا، سأستمع إليك وأتحقق من إجابتك تلقائيًا</p>
+
+    <div class="exam-full-progress-wrap">
+      <span class="exam-full-progress" id="eg2Progress">السؤال 1 / 101</span>
+    </div>
+    <div class="exam-full-scorebar" id="eg2Scorebar">✅ 0 &nbsp;|&nbsp; ❌ 0</div>
+    <div class="exam-full-dots" id="eg2Dots"></div>
+
+    <div class="exam-full-card" id="eg2Card">
+      <div class="efc-tag" id="eg2Tag"></div>
+      <div class="efc-question" id="eg2Question"></div>
+      <div class="efc-heard" id="eg2Heard"></div>
+      <div class="efc-verdict" id="eg2Verdict"></div>
+      <div class="efc-answer" id="eg2Answer"></div>
+      <div class="efc-hint" id="eg2Hint"></div>
+    </div>
+
+    <div class="exam-full-controls">
+      <button class="efc-mic-btn" id="eg2MicBtn">🎙️ سجّل إجابتك الآن</button>
+      <div class="efc-no-mic" id="eg2NoMic">⚠️ متصفحك لا يدعم التعرّف على الصوت. جرّب متصفح Chrome لاستخدام هذا الاختبار.</div>
+      <div class="exam-full-nav">
+        <button class="efc-next-btn" id="eg2NextBtn">السؤال التالي ←</button>
+      </div>
+    </div>
+
+    <div class="exam-full-final" id="eg2Final">
+      <div class="eff-circle" id="eg2Circle"></div>
+      <div class="eff-text" id="eg2Text"></div>
+      <button class="efc-restart-btn" id="eg2RestartBtn">🔄 إعادة الاختبار</button>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: النشاط ============ -->
+  <div class="modal-overlay" id="actModal">
+    <div class="exam-window">
+      <button class="modal-close" data-close>✕</button>
+      <div class="exam-window-header">🧩 النشاط</div>
+      <p class="ex-sub">أجب عن كل فراغ بالكتابة، أو اضغط 🎙️ وتحدّث ليتحوّل صوتك إلى نص تلقائيًا، ثم اضغط «تحقق». وبعد حلّ جميع الأنشطة اضغط زر «إظهار الإجابات النموذجية» في الأسفل لتصحّح لنفسك.</p>
+      <p class="score-badge">النتيجة: <b id="actScoreEl">0</b> / <span id="actTotalEl">0</span></p>
+      <div id="actReminder" class="act-reminder" style="display:none"></div>
+      <div class="ex-list" id="actList"></div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: FINAL RESULT ============ -->
+  <div class="modal-overlay" id="finalModal">
+    <div class="exam-window">
+      <button class="modal-close" data-close>✕</button>
+      <div class="exam-window-header">🏁 النتيجة النهائية</div>
+      <p class="ex-sub">بعد إتمام النشاط، اضغط الزر لحساب نسبة تمكّنك من الدرس. ستُحفظ نتيجتك في هاتفك لتتم مقارنتها بمحاولتك القادمة</p>
+      <button class="finish-btn" id="finishBtn">✅ إنهاء الاختبار وحساب نتيجتي</button>
+      <div class="final-result" id="finalResult"></div>
+    </div>
+  </div>
+
+  <footer>الجمل التي لها محلّ من الإعراب — دفتر القواعد الشامل: خرائط ذهنية هرمية · استماع · نشاط تفاعلي لكل درس 📖</footer>
+
+<script>
+/* =========================================================================================
+   بيانات الدروس — لإضافة درس جديد لاحقًا: أضف كائنًا جديدًا لمصفوفة LESSONS بنفس البنية:
+   { id, title, subtitle, def, badgeColor, icon, video:[{yt,label}] أو null, tree:[...], ACT:[...], actReminder }
+   ========================================================================================= */
+  const LESSONS = [
+    {
+      id:'basita-murakkaba', title:'الجملة البسيطة والمركبة', subtitle:'دعامة واحدة<br>أو أكثر', badgeColor:'#D6E8FF', icon:'🧱',
+      def:'<b>تعريفها:</b> <mark class="g">الجملة البسيطة</mark> هي جملة اسمية أو فعلية عناصرها <mark class="y">لفظة واحدة</mark> وليست جملة. أمّا <mark class="g">الجملة المركبة</mark> فهي جملة عنصرها ليس لفظة واحدة، وإنّما <mark class="l">جملة أو شبه جملة</mark>.<br><span style="font-size:12.5px">مثال بسيطة: انتصر الحقُّ (فعل لازم + فاعل) — مثال مركبة: سرّني أنّكم بخير (المبتدأ جملة اسمية)</span>',
+      video:[{yt:'74TRgegxhgo'}],
+      tree:[
+        { title:'الجملة البسيطة وأشكالها الأربعة', color:'blue',
+          rule:'هي جملة (اسمية أو فعلية) <mark class="l"><b>عناصرها لفظة واحدة</b></mark> وليست جملة، وتأتي على أربعة أشكال:',
+          children:[
+            { title:'01) فعل لازم + فاعل', rule:'فعل لا يحتاج مفعولًا به.', example:'انتصر الحقُّ' },
+            { title:'02) فعل متعدٍّ + فاعل + مفعول به', rule:'فعل يحتاج مفعولًا به واحدًا على الأقل.', example:'خلق اللهُ الكونَ' },
+            { title:'03) فعل مبني للمجهول + نائب فاعل', rule:'يُحذف الفاعل ويحلّ محلّه نائب فاعل.', example:'شُفي المريضُ' },
+            { title:'04) مبتدأ + خبر', rule:'جملة اسمية عنصراها مفردان.', example:'المجتهدُ ناجحٌ' }
+          ]
+        },
+        { title:'الجملة المركبة وأشكالها الخمسة', color:'purple',
+          rule:'هي جملة أحد عناصرها <mark class="l"><b>ليس لفظة واحدة، وإنّما جملة أو شبه جملة</b></mark>، وتأتي على خمسة أشكال:',
+          children:[
+            { title:'01) الفاعل جملة', rule:'الفاعل جاء جملة اسمية، وتقديره ضمير.', example:'سرّني أنّكم بخير — تقديره: سرّني كونُكم بخير' },
+            { title:'02) المفعول به جملة', rule:'المفعول به جاء مصدرًا مؤوّلًا، وتقديره مصدر.', example:'أحبّ أن تفهم — تقديره: أحبّ فهمَك' },
+            { title:'03) نائب الفاعل جملة', rule:'نائب الفاعل جاء جملة اسمية، وتقديره ضمير.', example:'عُرف أنّهم ماتوا في سبيل الله — تقديره: عُرف موتُهم في سبيل الله' },
+            { title:'04) المبتدأ جملة', rule:'المبتدأ جاء مصدرًا مؤوّلًا، وتقديره مصدر.', example:'أن تصوموا خيرٌ لكم — تقديره: صومُكم خيرٌ لكم' },
+            { title:'05) الخبر جملة', rule:'الخبر جاء جملة فعلية.', example:'العلمُ (ينفع صاحبه) — تقديره: العلمُ نافعٌ صاحبَه' }
+          ]
+        },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> الجملة البسيطة: كل عناصرها ألفاظ مفردة (فعل، فاعل، مفعول به، نائب فاعل، مبتدأ، خبر).<br>
+            <b>2)</b> الجملة المركبة: أحد عناصرها جملة كاملة أو مصدر مؤوّل بدل اللفظة المفردة.<br>
+            <b>3)</b> الجملة التي تحلّ محلّ الفاعل أو نائب الفاعل أو المبتدأ يكون تقديرها بمصدر أو ضمير حسب موقعها.<br>
+            <b>4)</b> هذا الدرس هو الأساس الذي تُبنى عليه دروس «الجمل التي لها محلّ من الإعراب» اللاحقة.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> الجملة البسيطة عناصرها ألفاظ مفردة، أمّا الجملة المركبة فأحد عناصرها جملة أو شبه جملة أو مصدر مؤوّل يقوم مقام اللفظة المفردة.',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة البسيطة عناصرها ألفاظ مفردة وليست جملة.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: هذا هو تعريف الجملة البسيطة.' },
+        { task:'اختر الإجابة الصحيحة:', text:'«انتصر الحقُّ» مثال على أيّ شكل من أشكال الجملة البسيطة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['فعل لازم وفاعل'], choices:['فعل لازم وفاعل','فعل متعدٍّ ومفعول به','مبتدأ وخبر','فعل مبني للمجهول ونائب فاعل'] }],
+          answerHtml:'«انتصر» فعل لازم لا يحتاج مفعولًا به، و«الحقُّ» فاعله.' },
+        { task:'عيّن شكل الجملة البسيطة في المثال الآتي:', text:'خلق اللهُ الكونَ.',
+          blanks:[{ label:'شكل الجملة', accept:['فعل متعدٍ وفاعل ومفعول به','فعل متعد وفاعل ومفعول به'] }],
+          answerHtml:'«خلق» فعل متعدٍّ، «اللهُ» فاعل، «الكونَ» مفعول به.' },
+        { task:'عيّن شكل الجملة البسيطة في المثال الآتي:', text:'شُفي المريضُ.',
+          blanks:[{ label:'شكل الجملة', accept:['فعل مبني للمجهول ونائب فاعل'] }],
+          answerHtml:'«شُفي» فعل مبني للمجهول، و«المريضُ» نائب فاعل.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة المركبة أحد عناصرها جملة أو شبه جملة بدل اللفظة الواحدة.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: هذا هو الفارق الجوهري بين الجملة البسيطة والمركبة.' },
+        { task:'اختر الإجابة الصحيحة:', text:'سرّني (أنّكم بخير). ما العنصر الذي جاء جملة هنا؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['الفاعل'], choices:['الفاعل','المفعول به','المبتدأ','الخبر'] }],
+          answerHtml:'الجملة الاسمية «أنّكم بخير» جاءت فاعلًا، وتقديرها: سرّني كونُكم بخير.' },
+        { task:'عيّن العنصر الذي جاء جملة أو مصدرًا مؤوّلًا في المثال الآتي:', text:'أحبّ (أن تفهم).',
+          blanks:[{ label:'العنصر', accept:['المفعول به'] },{ label:'تقديره', accept:['فهمك','فهمَك'] }],
+          answerHtml:'المصدر المؤوّل «أن تفهم» جاء مفعولًا به، وتقديره: أحبّ فهمَك.' },
+        { task:'اختر الإجابة الصحيحة:', text:'عُرف (أنّهم ماتوا في سبيل الله). ما العنصر الذي جاء جملة هنا؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['نائب الفاعل'], choices:['الفاعل','نائب الفاعل','المبتدأ','الخبر'] }],
+          answerHtml:'الجملة الاسمية «أنّهم ماتوا في سبيل الله» نائب فاعل، وتقديرها: عُرف موتُهم في سبيل الله.' },
+        { task:'عيّن العنصر الذي جاء مصدرًا مؤوّلًا في المثال الآتي:', text:'(أن تصوموا) خيرٌ لكم.',
+          blanks:[{ label:'العنصر', accept:['المبتدأ'] }],
+          answerHtml:'المصدر المؤوّل «أن تصوموا» مبتدأ، وتقديره: صومُكم خيرٌ لكم.' },
+        { task:'اختر الإجابة الصحيحة:', text:'العلمُ (ينفع صاحبه). ما العنصر الذي جاء جملة هنا؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['الخبر'], choices:['الفاعل','المفعول به','المبتدأ','الخبر'] }],
+          answerHtml:'الجملة الفعلية «ينفع صاحبه» خبر للمبتدأ «العلمُ».' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'من أشكال الجملة المركبة أن يكون الخبر جملة فعلية.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: مثل «العلمُ ينفع صاحبه».' },
+        { task:'أتمم بمثال صحيح على جملة بسيطة (مبتدأ + خبر):', text:'أعط مثالًا لجملة بسيطة من مبتدأ وخبر مفردين.',
+          blanks:[{ label:'مثال مناسب', accept:['المجتهد ناجح','المجتهدُ ناجحٌ','الطالب مجتهد'] }],
+          answerHtml:'مثال: المجتهدُ ناجحٌ — مبتدأ وخبر، كلاهما لفظة مفردة، فالجملة بسيطة.' }
+      ]
+    },
+    {
+      id:'mafoul-bih', title:'الواقعة مفعولا به', subtitle:'جملة تسدّ<br>مسدّ المفعول به', badgeColor:'#FFC6DA', icon:'🎯',
+      def:'<b>تعريفها:</b> هي <mark class="g">الجملة</mark> التي تقع بعد <mark class="y">فعل القول</mark> أو ما في معناه، أو بعد أداة مصدرية (<mark class="b">أنْ/لو</mark>)، أو تكون <mark class="l">مفعولًا ثانيًا</mark> لأفعال تتعدّى لمفعولين.<br><span style="font-size:12.5px">مثال: قال <mark class="b">إنّي عبدُ الله</mark>. (الجملة مقول القول في محل نصب مفعول به)</span>',
+      video:[{yt:'g7U0AWST8PQ'}],
+      tree:[
+        { title:'مقول القول (بعد فعل القول أو ما في معناه)', color:'blue',
+          rule:'تقع الجملة (اسمية أو فعلية) بعد <mark class="b"><b>فعل القول</b></mark> أو ما في معناه (قال، أجاب، ردّ، صاح...)، <mark class="l"><b>في محل نصب مفعول به</b></mark>.',
+          example:'قال <b>إنّي عبدُ الله</b> &nbsp;|&nbsp; ردّ الأستاذ <b>أحسنتَ</b>' },
+        { title:'مصدر مؤوّل (أنْ أو لو + الفعل المضارع)', color:'green',
+          rule:'تقع الجملة الفعلية بعد <mark class="b"><b>أنْ</b></mark> أو <mark class="b"><b>لو</b></mark> مؤوّلة بمصدر، <mark class="l"><b>في محل نصب مفعول به</b></mark>.',
+          example:'أرجو <b>أن تسامحني</b> &nbsp;|&nbsp; أتمنّى <b>لو تزورني غدًا</b>' },
+        { title:'مفعول به ثانٍ (لأفعال تتعدّى لمفعولين)', color:'purple',
+          rule:'تقع الجملة الفعلية <mark class="l"><b>مفعولًا به ثانيًا</b></mark> للأفعال التي تنصب مفعولين (ظنّ وأخواتها).',
+          example:'ظننتُ المال <b>ينفع صاحبه</b>' },
+        { title:'سادّة مسدّ المفعولين (بعد ظنّ وأخواتها)', color:'orange',
+          rule:'تقع الجملة الاسمية المصدرية (بـ<mark class="b"><b>أنّ</b></mark>) <mark class="l"><b>سادّة مسدّ المفعولين معًا</b></mark> بعد الأفعال الناصبة لمفعولين.',
+          example:'علمتُ <b>أنّ الفرج قريب</b>' },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> مقول القول والمصدر المؤوّل يقعان في محل نصب مفعول به واحد.<br>
+            <b>2)</b> الجملة الفعلية تقع مفعولًا به ثانيًا بعد الأفعال الناصبة لمفعولين مثل ظنّ وأخواتها.<br>
+            <b>3)</b> الجملة الاسمية المصدرية بـ«أنّ» تسدّ مسدّ المفعولين معًا.<br>
+            <b>4)</b> من الأفعال التي تنصب مفعولين: علم، وجد، ألفى، درى، رأى، ظنّ، حسب، زعم، خال، عدّ، جعل، صيّر، ردّ، اتّخذ، منح، وهب، أعطى، ألبس، كسا، منع.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> الجملة بعد فعل القول (مقول القول) والمصدر المؤول بعد «أنْ/لو» تقعان في محل نصب مفعول به. الجملة الفعلية تقع مفعولًا به ثانيًا لأفعال مثل ظنّ، والجملة الاسمية المصدرية بـ«أنّ» تسدّ مسدّ المفعولين معًا.',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'مقول القول يقع في محل نصب مفعول به.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: تقع جملة مقول القول بعد فعل القول أو ما في معناه في محل نصب مفعول به.' },
+        { task:'اختر الإجابة الصحيحة:', text:'قال (إنّي عبد الله). ما موقع الجملة بين القوسين؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['مقول القول في محل نصب مفعول به'], choices:['مقول القول في محل نصب مفعول به','مصدر مؤول في محل نصب مفعول به','مفعول به ثانٍ','لا محل لها من الإعراب'] }],
+          answerHtml:'الجملة «إنّي عبد الله» مقول القول بعد فعل «قال»، في محل نصب مفعول به.' },
+        { task:'عيّن نوع الجملة وحكمها الإعرابي في المثال الآتي:', text:'أرجو (أن تسامحني).',
+          blanks:[{ label:'نوع الجملة', accept:['مصدر مؤول','فعلية مصدرية'] },{ label:'حكمها', accept:['في محل نصب مفعول به','مفعول به منصوب'] }],
+          answerHtml:'<b>نوع الجملة:</b> فعلية مؤوّلة بمصدر بعد «أنْ».<br><b>حكمها:</b> في محل نصب مفعول به.' },
+        { task:'اختر الإجابة الصحيحة:', text:'ظننتُ المال (ينفع صاحبه). ما نوع هذه الجملة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['مفعول به ثانٍ'], choices:['مقول القول','مصدر مؤول','مفعول به ثانٍ','مضاف إليه'] }],
+          answerHtml:'الجملة «ينفع صاحبه» فعلية وقعت مفعولًا به ثانيًا للفعل «ظننتُ» الذي ينصب مفعولين.' },
+        { task:'عيّن نوع الجملة وحكمها في المثال الآتي:', text:'علمتُ (أنّ الفرج قريب).',
+          blanks:[{ label:'نوع الجملة', accept:['اسمية مصدرية سادة مسد المفعولين','اسمية مصدرية'] },{ label:'حكمها', accept:['سدت مسد مفعولي علم','في محل نصب سادة مسد المفعولين'] }],
+          answerHtml:'الجملة الاسمية المصدرية «أنّ الفرج قريب» سدّت مسدّ مفعولَي «علمتُ» معًا.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الأفعال مثل (ظنّ، حسب، خال) تنصب مفعولين.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: هذه من أفعال القلوب التي تنصب مفعولين.' },
+        { task:'اختر من القائمة فعلًا ينصب مفعولين:', text:'أيّ الأفعال التالية ينصب مفعولين؟',
+          blanks:[{ label:'الفعل المناسب', accept:['رأى'], choices:['ذهب','رأى','جلس','خرج'] }],
+          answerHtml:'«رأى» من الأفعال التي تنصب مفعولين إذا كانت بمعنى «علِمَ» أو «ظنّ».' },
+        { task:'أعرب الجملة الواقعة بين القوسين:', text:'أتمنّى (لو تزورني غدًا).',
+          blanks:[{ label:'إعراب الجملة', accept:['في محل نصب مفعول به','مصدر مؤول في محل نصب مفعول به'] }],
+          answerHtml:'الجملة «لو تزورني غدًا» مؤوّلة بمصدر، في محل نصب مفعول به للفعل «أتمنّى».' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة الواقعة مفعولًا به الثاني لا يمكن أن تكون اسمية سادّة مسدّ المفعولين.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: يمكن أن تسدّ الجملة الاسمية المصدرية بـ«أنّ» مسدّ المفعولين معًا.' },
+        { task:'اختر الإجابة الصحيحة:', text:'أيّ من هذه الأفعال يحتاج إلى مفعولين اثنين؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['منح'], choices:['منح','ذهب','جلس','خرج'] }],
+          answerHtml:'«منح» من الأفعال التي تتعدّى إلى مفعولين (منحتُ الفقيرَ مالًا).' },
+        { task:'أتمم الجملة الآتية بجملة مقول قول مناسبة، واذكر حكمها الإعرابي:', text:'قال المعلّمُ: ...........',
+          blanks:[{ label:'الجملة المناسبة', accept:['أحسنت','أحسنتَ','اجتهدوا'] },{ label:'حكمها', accept:['في محل نصب مفعول به'] }],
+          answerHtml:'مثال: قال المعلّمُ: «أحسنتَ».<br><b>الحكم:</b> جملة مقول القول في محل نصب مفعول به.' },
+        { task:'اختر الإجابة الصحيحة:', text:'ما الذي يربط الجملة الاسمية المصدرية بـ«أنّ» بالفعل الناسخ للمفعولين؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['تسدّ مسدّ المفعولين معًا فلا حاجة لمفعولين منفصلين'], choices:['تسدّ مسدّ المفعولين معًا فلا حاجة لمفعولين منفصلين','تكون مفعولًا أول فقط','لا علاقة لها بالمفعولين','تكون فاعلًا']}],
+          answerHtml:'الجملة الاسمية المصدرية بـ«أنّ» تحل محل المفعولين معًا في مثل «علمتُ أنّ الفرج قريب».' }
+      ]
+    },
+    {
+      id:'naat', title:'الواقعة نعتا', subtitle:'جملة خبرية<br>بعد نكرة', badgeColor:'#AFD4F2', icon:'🖋️',
+      def:'<b>تعريفها:</b> هي <mark class="g">الجملة</mark> (فعلية أو اسمية) الواقعة بعد <mark class="y">اسم نكرة</mark> تصفه، وتكون <mark class="b">خبرية لا إنشائية</mark>، ولا بدّ لها من <mark class="l">رابط</mark> يعود على الموصوف.<br><span style="font-size:12.5px">مثال: اشتريتُ كتابًا <mark class="b">يفيد قارئه</mark>. (جملة فعلية في محل نصب نعت)</span>',
+      video:[{yt:'V42tqNuiOz8'}],
+      tree:[
+        { title:'شرطها (بعد نكرة + جملة خبرية)', color:'blue',
+          rule:'تقع بعد اسم <mark class="l"><b>نكرة</b></mark>، ويجب أن تكون الجملة <mark class="b"><b>خبرية لا إنشائية</b></mark>، لأن الجملة الإنشائية لا يُوصف بها.',
+          example:'اشتريتُ كتابًا <b>يفيد قارئه</b>' },
+        { title:'أنواعها (فعلية أو اسمية)', color:'green',
+          rule:'قد تكون الجملة النعتية <mark class="l"><b>فعلية أو اسمية</b></mark>، ولا بدّ فيها من رابط (غالبًا ضمير) يعود على المنعوت.',
+          example:'أرسل اللهُ رسولًا <b>دعوتُه نجاةٌ</b> (جملة اسمية)' },
+        { title:'حكمها الإعرابي', color:'purple',
+          rule:'تتبع الجملة النعتية <mark class="l"><b>المنعوت في محلّه الإعرابي</b></mark>: رفعًا، أو نصبًا، أو جرًّا.' },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> تقع الجملة النعتية بعد اسم نكرة، بخلاف الجملة الحالية التي تقع بعد معرفة.<br>
+            <b>2)</b> يجب أن تكون الجملة خبرية لا إنشائية.<br>
+            <b>3)</b> لا بدّ لها من رابط (ضمير غالبًا) يعود على المنعوت.<br>
+            <b>4)</b> تتبع المنعوت في محله الإعرابي: رفعًا أو نصبًا أو جرًّا.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> الجملة النعتية تقع بعد نكرة، وتكون خبرية لا إنشائية، ولا بدّ فيها من رابط يعود على المنعوت، وتتبعه في محله الإعرابي رفعًا أو نصبًا أو جرًّا.',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة الواقعة نعتًا تأتي بعد اسم معرفة.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: تقع الجملة النعتية بعد اسم <b>نكرة</b>؛ أما بعد المعرفة فتكون حالًا.' },
+        { task:'اختر الإجابة الصحيحة:', text:'ما حكم الجملة الواقعة نعتًا؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['الرفع أو النصب أو الجر حسب المنعوت'], choices:['الرفع أو النصب أو الجر حسب المنعوت','الجر دائمًا','النصب دائمًا','لا محل لها من الإعراب']}],
+          answerHtml:'تتبع الجملة النعتية منعوتها في محله الإعرابي، فتكون في محل رفع أو نصب أو جر.' },
+        { task:'عيّن نوع الجملة النعتية وحكمها الإعرابي:', text:'اشتريتُ كتابًا (يفيد قارئه).',
+          blanks:[{ label:'نوع الجملة', accept:['فعلية'] },{ label:'حكمها', accept:['في محل نصب نعت','نعت منصوب'] }],
+          answerHtml:'<b>نوع الجملة:</b> فعلية.<br><b>حكمها:</b> في محل نصب نعت لـ«كتابًا».' },
+        { task:'عيّن نوع الجملة النعتية وحكمها الإعرابي:', text:'أرسل اللهُ رسولًا (دعوتُه نجاةٌ).',
+          blanks:[{ label:'نوع الجملة', accept:['اسمية'] },{ label:'حكمها', accept:['في محل نصب نعت','نعت منصوب'] }],
+          answerHtml:'<b>نوع الجملة:</b> اسمية.<br><b>حكمها:</b> في محل نصب نعت لـ«رسولًا».' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'يجب أن تكون الجملة الواقعة نعتًا خبرية لا إنشائية.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: الجملة الإنشائية لا يُوصف بها فلا تصلح نعتًا.' },
+        { task:'اختر الإجابة الصحيحة:', text:'أيّ الجمل التالية تصلح أن تقع نعتًا؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['جملة خبرية'], choices:['جملة إنشائية طلبية','جملة خبرية','جملة استفهامية','جملة نداء']}],
+          answerHtml:'يشترط في الجملة الواقعة نعتًا أن تكون خبرية لا إنشائية.' },
+        { task:'أتمم الجملة الآتية بجملة فعلية نعتًا مناسبًا:', text:'قابلتُ رجلًا ...........',
+          blanks:[{ label:'الجملة المناسبة', accept:['يحب الخير','يساعد الفقراء','يخاف الله'] }],
+          answerHtml:'مثال: قابلتُ رجلًا <b>يحبّ الخير</b> — جملة فعلية في محل نصب نعت.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'لا بدّ للجملة النعتية من رابط يعود على المنعوت.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: الرابط (غالبًا ضمير) يربط الجملة بالموصوف.' },
+        { task:'اختر الإجابة الصحيحة:', text:'الجملة النعتية تتبع منعوتها في:',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['المحل الإعرابي'], choices:['اللفظ فقط','المحل الإعرابي','لا تتبعه في شيء','العدد فقط']}],
+          answerHtml:'تتبع الجملة النعتية منعوتها في محلّه الإعرابي (رفعًا أو نصبًا أو جرًّا).' },
+        { task:'ميّز الجملة النعتية وحدّد الكلمة التي تصفها في المثال الآتي:', text:'هذا رجلٌ (يخاف اللهَ).',
+          blanks:[{ label:'الكلمة الموصوفة (المنعوت)', accept:['رجل','رجلٌ'] },{ label:'نوع الجملة', accept:['فعلية'] }],
+          answerHtml:'الجملة «يخاف الله» نعت لكلمة «رجلٌ» النكرة، وهي جملة فعلية في محل رفع نعت.' }
+      ]
+    },
+    {
+      id:'haal', title:'الواقعة حالا', subtitle:'جملة تبيّن هيئة<br>بعد معرفة', badgeColor:'#FFCA9B', icon:'🌙',
+      def:'<b>تعريفها:</b> هي <mark class="g">الجملة</mark> (فعلية أو اسمية) الواقعة بعد <mark class="y">اسم معرفة</mark> تبيّن هيئة صاحبها وقت وقوع الفعل، ولها <mark class="l">عائد</mark> يربطها بصاحبها.<br><span style="font-size:12.5px">مثال: وجاءوا أباهم عشاءً <mark class="b">يبكون</mark>. (جملة فعلية في محل نصب حال)</span>',
+      video:[{yt:'LVfwVf74OSg'}],
+      tree:[
+        { title:'شرطها (بعد معرفة + رابط)', color:'blue',
+          rule:'تقع بعد اسم <mark class="l"><b>معرفة</b></mark>، ولا بدّ لها من رابط يربطها بصاحب الحال: <mark class="b"><b>ضمير</b></mark> (متصل أو مستتر)، أو <mark class="b"><b>واو الحال</b></mark>، أو كلاهما معًا.',
+          example:'وجاءوا أباهم عشاءً <b>يبكون</b>' },
+        { title:'أنواع الرابط', color:'green',
+          rule:'قد يكون الرابط <mark class="l"><b>ضميرًا فقط</b></mark>، أو <mark class="l"><b>واو الحال مع ضمير</b></mark>.',
+          children:[
+            { title:'ضمير فقط', rule:'الفاعل المستتر في الجملة الفعلية يعود على صاحب الحال.', example:'جاء زيدٌ <b>يضحك</b>' },
+            { title:'واو الحال + ضمير', rule:'تقترن الجملة الاسمية بواو الحال، ويوجد فيها ضمير يعود على صاحب الحال.', example:'لا تقربوا الصلاةَ <b>وأنتم سكارى</b>' }
+          ]
+        },
+        { title:'حكمها الإعرابي', color:'purple', rule:'حكمها <mark class="l"><b>النصب دائمًا</b></mark> (في محل نصب حال).' },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> الجمل بعد المعارف أحوال، والجمل بعد النكرات صفات (نعوت).<br>
+            <b>2)</b> يشترط في الجملة الحالية أن تكون خبرية ولها رابط يعود على صاحبها.<br>
+            <b>3)</b> يمكن أن يجتمع الرابطان (الواو والضمير) معًا في الجملة الواحدة.<br>
+            <b>4)</b> حكم الجملة الحالية النصب دائمًا.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> قاعدة ذهبية: الجمل بعد المعارف أحوال، وبعد النكرات صفات. الجملة الحالية حكمها النصب دائمًا ولا بدّ لها من رابط (ضمير أو واو الحال أو كلاهما).',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة الواقعة حالًا تقع بعد اسم نكرة.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: تقع الجملة الحالية بعد اسم <b>معرفة</b>؛ أما بعد النكرة فتكون نعتًا.' },
+        { task:'اختر الإجابة الصحيحة:', text:'ما حكم الجملة الواقعة حالًا؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['النصب دائمًا'], choices:['النصب دائمًا','الرفع دائمًا','الجر دائمًا','لا محل لها']}],
+          answerHtml:'حكم الجملة الحالية النصب دائمًا، في محل نصب حال.' },
+        { task:'عيّن نوع الجملة وحكمها في المثال الآتي:', text:'وجاءوا أباهم عشاءً (يبكون).',
+          blanks:[{ label:'نوع الجملة', accept:['فعلية'] },{ label:'حكمها', accept:['في محل نصب حال','حال منصوب'] }],
+          answerHtml:'<b>نوع الجملة:</b> فعلية.<br><b>حكمها:</b> في محل نصب حال، والرابط ضمير الفاعل المستتر.' },
+        { task:'عيّن نوع الجملة والرابط فيها في المثال الآتي:', text:'لا تقربوا الصلاةَ (وأنتم سكارى).',
+          blanks:[{ label:'نوع الجملة', accept:['اسمية'] },{ label:'الرابط', accept:['واو الحال والضمير','الواو والضمير'] }],
+          answerHtml:'<b>نوع الجملة:</b> اسمية، في محل نصب حال.<br><b>الرابط:</b> واو الحال مع ضمير «أنتم».' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'القاعدة «الجمل بعد المعارف أحوال، وبعد النكرات صفات» صحيحة.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: هذه قاعدة أساسية للتفريق بين الحال والنعت الجملة.' },
+        { task:'اختر الرابط الصحيح في المثال الآتي:', text:'جاء زيدٌ (يضحك). ما الرابط بين الجملة وصاحب الحال؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['ضمير مستتر تقديره هو'], choices:['ضمير مستتر تقديره هو','واو الحال فقط','لا يوجد رابط','ضمير متصل بارز']}],
+          answerHtml:'الفاعل في «يضحك» ضمير مستتر تقديره «هو» يعود على «زيد».' },
+        { task:'أتمم الجملة الآتية بجملة حالية مناسبة، واذكر نوعها:', text:'دخل الطالبُ ...........',
+          blanks:[{ label:'الجملة المناسبة', accept:['يبتسم','مسرعا','وهو مبتسم'] },{ label:'حكمها', accept:['في محل نصب حال'] }],
+          answerHtml:'مثال: دخل الطالبُ <b>يبتسم</b> — جملة فعلية في محل نصب حال.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'يمكن أن يجتمع الرابطان (الواو والضمير) معًا في الجملة الحالية.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: كما في «وأنتم سكارى» حيث اجتمعت الواو مع الضمير «أنتم».' },
+        { task:'اختر الإجابة الصحيحة:', text:'الجملة الواقعة حالًا يمكن أن تكون:',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['فعلية أو اسمية'], choices:['فعلية فقط','اسمية فقط','فعلية أو اسمية','حرفية']}],
+          answerHtml:'يمكن أن تكون الجملة الحالية فعلية أو اسمية بحسب المثال.' },
+        { task:'ميّز نوع الرابط في المثال الآتي:', text:'خرجتُ (وأنا فرحٌ).',
+          blanks:[{ label:'نوع الرابط', accept:['واو الحال والضمير','الواو والضمير أنا'] }],
+          answerHtml:'الرابط هنا واو الحال مع الضمير «أنا» العائد على الفاعل.' }
+      ]
+    },
+    {
+      id:'khabar-mubtada', title:'الواقعة خبرا للمبتدأ', subtitle:'جملة ترتبط<br>بالمبتدأ بضمير', badgeColor:'#D8C6F0', icon:'📋',
+      def:'<b>تعريفها:</b> هي <mark class="g">الجملة</mark> (اسمية مجرّدة، أو فعلية، أو شبه جملة متعلقة بمحذوف) الواردة <mark class="y">خبرًا للمبتدأ</mark>، تكون <mark class="b">خبرية لا إنشائية</mark>، ويربطها بالمبتدأ <mark class="l">ضمير</mark>.<br><span style="font-size:12.5px">مثال: التمرُ <mark class="b">فوائدُه عظيمةٌ</mark>. (جملة اسمية في محل رفع خبر)</span>',
+      video:[{yt:'pvQMuv94Uxk'}],
+      tree:[
+        { title:'أنواعها', color:'blue',
+          rule:'ترد الجملة الخبرية <mark class="l"><b>اسمية مجرّدة</b></mark>، أو <mark class="l"><b>فعلية</b></mark>، أو <mark class="l"><b>شبه جملة</b></mark> متعلقة بمحذوف هو الخبر.',
+          children:[
+            { title:'جملة اسمية', rule:'خبر مكوّن من مبتدأ ثانٍ وخبره.', example:'التمرُ <b>فوائدُه عظيمةٌ</b>' },
+            { title:'جملة فعلية', rule:'خبر مكوّن من فعل وفاعله.', example:'العلمُ <b>ينفع صاحبَه</b>' },
+            { title:'شبه جملة (جار ومجرور أو ظرف)', rule:'متعلقة بمحذوف تقديره هو الخبر الحقيقي.', example:'الكنزُ <b>في مأمنٍ</b>' }
+          ]
+        },
+        { title:'شرطها', color:'green', rule:'أن تكون الجملة <mark class="l"><b>خبرية لا إنشائية</b></mark>، وأن يربطها بالمبتدأ <mark class="l"><b>ضمير</b></mark> (ظاهر أو مستتر أو غيره).' },
+        { title:'حكمها الإعرابي', color:'purple', rule:'حكمها <mark class="l"><b>الرفع دائمًا</b></mark> (في محل رفع خبر).' },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> الجملة الخبرية للمبتدأ حكمها الرفع دائمًا.<br>
+            <b>2)</b> قد تكون اسمية مجردة، فعلية، أو شبه جملة متعلقة بمحذوف هو الخبر.<br>
+            <b>3)</b> يجب أن تكون خبرية لا إنشائية.<br>
+            <b>4)</b> شبه الجملة نفسها لا تُعرب خبرًا مباشرة، بل هي متعلقة بمحذوف هو الخبر الحقيقي.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> خبر المبتدأ الجملة يكون في محل رفع دائمًا. قد يكون اسميًا مجردًا أو فعليًا أو شبه جملة متعلقة بمحذوف، ولا بدّ من رابط (غالبًا ضمير) يربطه بالمبتدأ.',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة الواقعة خبرًا للمبتدأ حكمها الرفع.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: خبر المبتدأ الجملة يكون في محل رفع دائمًا.' },
+        { task:'اختر الإجابة الصحيحة:', text:'التمرُ (فوائدُه عظيمةٌ). ما نوع الجملة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['جملة اسمية'], choices:['جملة اسمية','جملة فعلية','شبه جملة','لا شيء مما ذُكر']}],
+          answerHtml:'الجملة «فوائده عظيمة» جملة اسمية في محل رفع خبر المبتدأ «التمر».' },
+        { task:'عيّن نوع الجملة وحكمها في المثال الآتي:', text:'العلمُ (ينفع صاحبَه).',
+          blanks:[{ label:'نوع الجملة', accept:['فعلية'] },{ label:'حكمها', accept:['في محل رفع خبر','خبر مرفوع'] }],
+          answerHtml:'<b>نوع الجملة:</b> فعلية.<br><b>حكمها:</b> في محل رفع خبر المبتدأ «العلم».' },
+        { task:'عيّن نوع الجملة (شبه الجملة) وحكمها في المثال الآتي:', text:'الكنزُ (في مأمنٍ).',
+          blanks:[{ label:'نوع التركيب', accept:['شبه جملة جار ومجرور'] },{ label:'حكمها', accept:['متعلقة بمحذوف هو الخبر','في محل رفع خبر'] }],
+          answerHtml:'«في مأمنٍ» شبه جملة (جار ومجرور) متعلقة بمحذوف تقديره هو الخبر الحقيقي.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'يجب أن تكون الجملة الخبرية إنشائية.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: يجب أن تكون الجملة الخبرية <b>خبرية لا إنشائية</b>.' },
+        { task:'اختر الإجابة الصحيحة:', text:'الرابط الغالب بين المبتدأ والجملة الخبرية هو:',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['ضمير'], choices:['حرف عطف','ضمير','أداة شرط','حرف جر']}],
+          answerHtml:'الرابط الغالب بين المبتدأ والجملة الخبرية هو ضمير يعود على المبتدأ.' },
+        { task:'أتمم الجملة الآتية بخبر جملة مناسب، واذكر نوعه:', text:'الصدقُ ...........',
+          blanks:[{ label:'الخبر المناسب', accept:['ينجي صاحبه','عاقبته حسنة'] },{ label:'نوعه', accept:['جملة فعلية','جملة اسمية'] }],
+          answerHtml:'مثال: الصدقُ <b>ينجي صاحبَه</b> — جملة فعلية في محل رفع خبر.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'شبه الجملة نفسها تُعرب خبرًا مباشرة دون تقدير.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: شبه الجملة متعلقة بمحذوف هو الخبر الحقيقي، وليست هي نفسها الخبر.' },
+        { task:'اختر الإجابة الصحيحة:', text:'أيّ مما يلي جملة خبرية للمبتدأ؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['زيدٌ أبوه قائمٌ'], choices:['زيدٌ قائمٌ','زيدٌ أبوه قائمٌ','في الدار زيدٌ','يا زيدُ']}],
+          answerHtml:'«زيدٌ أبوه قائمٌ» جملة اسمية مكوّنة من مبتدأ ثانٍ وخبره، وهي خبر المبتدأ «زيد».' },
+        { task:'ميّز الرابط في المثال الآتي:', text:'الحديقةُ أشجارُها مثمرةٌ.',
+          blanks:[{ label:'الرابط', accept:['الضمير ها العائد على الحديقة','ضمير الهاء'] }],
+          answerHtml:'الرابط هو الضمير «ها» في «أشجارُها» العائد على المبتدأ «الحديقة».' }
+      ]
+    },
+    {
+      id:'khabar-nasikh', title:'الواقعة خبرا لناسخ', subtitle:'كان - إنّ - كاد<br>وأخواتهنّ', badgeColor:'#F0D9A8', icon:'🔗',
+      def:'<b>تعريفها:</b> يكون خبر النواسخ (<mark class="g">كان</mark> وأخواتها، <mark class="y">إنّ</mark> وأخواتها، <mark class="b">كاد</mark> وأخواتها) جملة فعلية أو اسمية، وتكون <mark class="l">خبرية لا إنشائية</mark> يربطها بالاسم ضمير.<br><span style="font-size:12.5px">مثال: كان الفيروسُ <mark class="b">ينتشر بسرعة</mark>. (خبر كان في محل نصب)</span>',
+      video:[{yt:'OcwLVN77suI'}],
+      tree:[
+        { title:'خبر كان وأخواتها وكاد وأخواتها', color:'blue',
+          rule:'خبرها جملة فعلية أو اسمية، حكمه <mark class="l"><b>في محل نصب خبر</b></mark>.',
+          children:[
+            { title:'أخوات كان', rule:'أمسى، أصبح، أضحى، ظلّ، بات، صار، ليس، ما زال، ما فتئ، ما برح، ما دام، ما انفكّ، وما تصرّف منها.', example:'كان الفيروسُ <b>ينتشر بسرعة</b>' },
+          ]
+        },
+        { title:'خبر إنّ وأخواتها', color:'green',
+          rule:'خبرها جملة فعلية أو اسمية، حكمه <mark class="l"><b>في محل رفع خبر</b></mark>.',
+          children:[
+            { title:'أخوات إنّ', rule:'أنّ، لكنّ، كأنّ، ليت، لعلّ.', example:'لعلّ الفيروسَ <b>منطلقُه الصينُ</b>' }
+          ]
+        },
+        { title:'خبر كاد وأخواتها', color:'purple',
+          rule:'تنقسم كاد وأخواتها إلى ثلاثة أقسام، وخبرها جملة فعلية غالبًا، حكمه <mark class="l"><b>في محل نصب خبر</b></mark>.',
+          children:[
+            { title:'أفعال المقاربة', rule:'كاد، أوشك، كرب.', example:'كاد فيروسُ كورونا <b>يقتل الآلاف منا</b>' },
+            { title:'أفعال الرجاء', rule:'عسى، حرى، اخلولق.', example:'عسى الفرجُ <b>أن يأتي قريبًا</b>' },
+            { title:'أفعال الشروع', rule:'أنشأ، أخذ، طفِق، علِق، قام، أقبل، هبّ.', example:'أخذ الطفلُ <b>يضحك</b>' }
+          ]
+        },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> خبر كان وأخواتها في محل نصب.<br>
+            <b>2)</b> خبر إنّ وأخواتها في محل رفع.<br>
+            <b>3)</b> خبر كاد وأخواتها في محل نصب.<br>
+            <b>4)</b> يجب أن تكون جملة الخبر خبرية لا إنشائية، ويربطها بالاسم ضمير.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> خبر كان وكاد وأخواتهما في محل نصب، وخبر إنّ وأخواتها في محل رفع. يجب أن تكون جملة الخبر خبرية لا إنشائية ويربطها بالاسم ضمير.',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'خبر كان وأخواتها في محل نصب.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: خبر كان وأخواتها الجملة يكون في محل نصب.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'خبر إنّ وأخواتها في محل نصب أيضًا.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: خبر إنّ وأخواتها الجملة يكون في محل <b>رفع</b>.' },
+        { task:'اختر الإجابة الصحيحة:', text:'كان الفيروسُ (ينتشر بسرعة). ما حكم هذه الجملة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['في محل نصب خبر كان'], choices:['في محل نصب خبر كان','في محل رفع خبر كان','في محل جر','لا محل لها']}],
+          answerHtml:'الجملة الفعلية «ينتشر بسرعة» في محل نصب خبر «كان».' },
+        { task:'اختر الإجابة الصحيحة:', text:'لعلّ الفيروسَ (منطلقُه الصينُ). ما حكم هذه الجملة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['في محل رفع خبر لعلّ'], choices:['في محل رفع خبر لعلّ','في محل نصب خبر لعلّ','في محل جر','لا محل لها']}],
+          answerHtml:'الجملة الاسمية «منطلقُه الصينُ» في محل رفع خبر «لعلّ».' },
+        { task:'عيّن نوع الجملة ونوع الناسخ وحكم الجملة في المثال الآتي:', text:'كاد فيروسُ كورونا (يقتل الآلاف منّا).',
+          blanks:[{ label:'نوع الجملة', accept:['فعلية'] },{ label:'حكمها', accept:['في محل نصب خبر كاد','خبر كاد منصوب محلا'] }],
+          answerHtml:'<b>نوع الجملة:</b> فعلية.<br><b>حكمها:</b> في محل نصب خبر «كاد» (من أفعال المقاربة).' },
+        { task:'اختر من أخوات إنّ:', text:'أيّ الحروف التالية من أخوات إنّ؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['لكنّ'], choices:['ظلّ','لكنّ','أصبح','عسى'] }],
+          answerHtml:'«لكنّ» من أخوات إنّ (تفيد الاستدراك).' },
+        { task:'اختر من أخوات كان:', text:'أيّ الأفعال التالية من أخوات كان؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['ظلّ'], choices:['كأنّ','ظلّ','ليت','عسى'] }],
+          answerHtml:'«ظلّ» من أخوات كان الناسخة.' },
+        { task:'اختر من أفعال المقاربة:', text:'أيّ الأفعال التالية من أفعال المقاربة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['كرب'], choices:['أخذ','كرب','هبّ','عسى'] }],
+          answerHtml:'«كرب» من أفعال المقاربة (كاد، أوشك، كرب).' },
+        { task:'اختر من أفعال الرجاء:', text:'أيّ الأفعال التالية من أفعال الرجاء؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['اخلولق'], choices:['اخلولق','أوشك','طفِق','بات'] }],
+          answerHtml:'«اخلولق» من أفعال الرجاء (عسى، حرى، اخلولق).' },
+        { task:'اختر من أفعال الشروع:', text:'أيّ الأفعال التالية من أفعال الشروع؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['طفِق'], choices:['طفِق','كاد','عسى','أوشك'] }],
+          answerHtml:'«طفِق» من أفعال الشروع (أنشأ، أخذ، طفِق، علِق، قام، أقبل، هبّ).' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'يجب أن تكون جملة خبر الناسخ خبرية لا إنشائية.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: يشترط في جملة الخبر أن تكون خبرية لا إنشائية.' },
+        { task:'أعرب الجملة الواقعة بين القوسين:', text:'أصبح الجوُّ (يزداد برودةً).',
+          blanks:[{ label:'إعراب الجملة', accept:['جملة فعلية في محل نصب خبر أصبح','في محل نصب خبر أصبح'] }],
+          answerHtml:'الجملة الفعلية «يزداد برودةً» في محل نصب خبر «أصبح».' }
+      ]
+    },
+    {
+      id:'mudaf-ilayh', title:'الواقعة مضافا إليه', subtitle:'جملة بعد ظرف<br>أو كلمة معيّنة', badgeColor:'#A9E5DC', icon:'🧷',
+      def:'<b>تعريفها:</b> تقع <mark class="g">الجملة</mark> مضافًا إليه مباشرة بعد <mark class="y">أسماء الزمان والمكان</mark>، وبعد كلمات مثل <mark class="b">رغم، مع، غير، حدّ، سوى، دون، بدل، عوض</mark>، وبعد المصادر المقترنة بـ<mark class="l">أنّ أو ما</mark> بعد (قبل) أو (بعد).<br><span style="font-size:12.5px">مثال: سررتُ حين <mark class="b">رأيتُك</mark>. (جملة في محل جر مضاف إليه)</span>',
+      video:[{yt:'4FaPQgqfQok'}],
+      tree:[
+        { title:'بعد ظروف الزمان والمكان', color:'blue',
+          rule:'تقع مباشرة بعد <mark class="l"><b>ظروف الزمان والمكان</b></mark>: إذ، حيث، إذا، لمّا، منذ، مذ، يوم، حين.',
+          example:'سررتُ حين <b>رأيتُك</b> &nbsp;|&nbsp; اذكر ربّك إذا <b>نسيتَ</b> &nbsp;|&nbsp; أجلس حيث <b>وجدتُ مكانًا</b>' },
+        { title:'بعد كلمات (رغم/مع/غير/حدّ/سوى/دون/بدل/عوض)', color:'green',
+          rule:'تقع بعد هذه الكلمات مباشرة، وتُعرب <mark class="l"><b>في محل جر مضاف إليه</b></mark>.',
+          example:'أكرم ضيفك بدل <b>أن تطردَه</b> &nbsp;|&nbsp; لم يبق لي سوى <b>أن أكتب</b> الخاتمة' },
+        { title:'بعد المصادر المقترنة بأنّ أو ما (قبل/بعد)', color:'purple',
+          rule:'تقع بعد المصادر الواقعة مفعولًا لأجله المقترنة بـ<mark class="b"><b>أنّ</b></mark> أو <mark class="b"><b>ما</b></mark> بعد (قبل) أو (بعد).',
+          example:'اغسل يديك قبل <b>أن تأكل</b>' },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> حكمها دائمًا في محل جر مضاف إليه.<br>
+            <b>2)</b> قد تكون فعلية أو اسمية.<br>
+            <b>3)</b> ظروف الزمان والمكان الشائعة: إذ، حيث، إذا، لمّا، منذ، مذ، يوم، حين.<br>
+            <b>4)</b> تقع أيضًا بعد: رغم، مع، غير، حدّ، سوى، دون، بدل، عوض.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> الجملة الواقعة مضافًا إليه تقع مباشرة بعد أسماء الزمان والمكان (ظرفًا أو غير ظرف)، أو بعد كلمات مثل رغم/مع/غير/سوى/دون/بدل، وحكمها دائمًا في محل جر.',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة الواقعة مضافًا إليه حكمها في محل جر.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: حكم الجملة المضاف إليها دائمًا في محل جر.' },
+        { task:'اختر الإجابة الصحيحة:', text:'سررتُ حين (رأيتُك). ما نوع الجملة وحكمها؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['فعلية، مضاف إليه في محل جر'], choices:['فعلية، مضاف إليه في محل جر','اسمية، خبر في محل رفع','فعلية، حال في محل نصب','لا محل لها']}],
+          answerHtml:'الجملة «رأيتُك» فعلية، في محل جر مضاف إليه لظرف الزمان «حين».' },
+        { task:'عيّن نوع الجملة وحكمها في المثال الآتي:', text:'اذكر ربّك إذا (نسيتَ).',
+          blanks:[{ label:'نوع الجملة', accept:['فعلية'] },{ label:'حكمها', accept:['في محل جر مضاف إليه','مضاف إليه'] }],
+          answerHtml:'<b>نوع الجملة:</b> فعلية.<br><b>حكمها:</b> في محل جر مضاف إليه لـ«إذا».' },
+        { task:'اختر من ظروف الزمان والمكان:', text:'أيّ الكلمات التالية من ظروف الزمان أو المكان التي تُضاف إلى جملة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['حيث'], choices:['حيث','على','في','إلى'] }],
+          answerHtml:'«حيث» من ظروف المكان التي تُضاف إلى جملة بعدها.' },
+        { task:'عيّن نوع الجملة وحكمها في المثال الآتي:', text:'لمّا (طرقتُ البابَ) فُتِحت لي.',
+          blanks:[{ label:'نوع الجملة', accept:['فعلية'] },{ label:'حكمها', accept:['مضاف إليه للمّا','في محل جر مضاف إليه'] }],
+          answerHtml:'الجملة «طرقتُ الباب» في محل جر مضاف إليه لظرف الزمان «لمّا».' },
+        { task:'أعرب الجملة الواقعة بين القوسين:', text:'أكرم ضيفَك بدل (أن تطردَه).',
+          blanks:[{ label:'إعراب الجملة', accept:['في محل جر مضاف إليه','مضاف إليه لبدل'] }],
+          answerHtml:'الجملة المصدرية «أن تطردَه» في محل جر مضاف إليه لكلمة «بدل».' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'تقع الجملة مضافًا إليه بعد الكلمة «مع» أيضًا.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: من الكلمات التي تُضاف إلى جملة بعدها: رغم، مع، غير، حدّ، سوى، دون، بدل، عوض.' },
+        { task:'أعرب الجملة الواقعة بين القوسين:', text:'اغسل يديك قبل (أن تأكل).',
+          blanks:[{ label:'إعراب الجملة', accept:['في محل جر مضاف إليه'] }],
+          answerHtml:'الجملة المصدرية «أن تأكل» في محل جر مضاف إليه للظرف «قبل».' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'الجملة المضاف إليها لا يمكن أن تكون اسمية.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: يمكن أن تكون الجملة المضاف إليها اسمية أيضًا.' },
+        { task:'عيّن نوع الجملة وحكمها في المثال الآتي:', text:'أنت فقيرٌ غيرَ (أنّك كريمٌ).',
+          blanks:[{ label:'نوع الجملة', accept:['اسمية'] },{ label:'حكمها', accept:['مضاف إليه لغير','في محل جر مضاف إليه'] }],
+          answerHtml:'الجملة الاسمية «أنّك كريمٌ» في محل جر مضاف إليه لكلمة «غير».' }
+      ]
+    },
+    {
+      id:'jawab-shart', title:'الواقعة جوابا لشرط', subtitle:'جازم أو<br>غير جازم', badgeColor:'#B7E8B0', icon:'⚡',
+      def:'<b>تعريفها:</b> تكون <mark class="g">الجملة</mark> جوابًا للشرط <mark class="y">في محل جزم</mark> إذا كانت مسبوقة بأداة شرط <mark class="b">جازمة</mark> ومقترنة بالفاء أو إذا الفجائية، وتكون <mark class="l">لا محل لها من الإعراب</mark> في غير ذلك.<br><span style="font-size:12.5px">مثال: من يجتهد <mark class="b">فالنجاحُ حليفُه</mark>. (جواب الشرط في محل جزم)</span>',
+      video:[{yt:'fZ7a5MYUNyQ'}],
+      tree:[
+        { title:'جواب الشرط الجازم (في محل جزم)', color:'blue',
+          rule:'شرطها: أن تكون مسبوقة بأداة شرط <mark class="l"><b>جازمة</b></mark>، ومقترنة بـ<mark class="b"><b>الفاء</b></mark> أو <mark class="b"><b>إذا الفجائية</b></mark>.',
+          example:'من يجتهد <b>فالنجاحُ حليفُه</b> &nbsp;|&nbsp; وإن لم يُعطَوا منها <b>إذا هم يسخطون</b>' },
+        { title:'جواب الشرط (لا محل له من الإعراب)', color:'orange',
+          rule:'وذلك إذا كانت مسبوقة بأداة شرط <mark class="l"><b>غير جازمة</b></mark>، أو غير مقترنة بالفاء أو إذا الفجائية <mark class="l"><b>ولو وجدت أداة جازمة</b></mark>.',
+          example:'لمّا نزل المطرُ <b>نما الزرعُ</b> &nbsp;|&nbsp; كلّما كنتَ مخلصًا <b>وثِق فيك الناسُ</b>' },
+        { title:'أدوات الشرط الجازمة', color:'green', rule:'إنْ، ما، مَنْ، مهما، متى، حيثما، أيّان، أينما، كيفما، أيّ، أنّى.' },
+        { title:'أدوات الشرط غير الجازمة', color:'purple', rule:'لو، لولا، لوما، إذا، كلّما، لمّا، أمّا.' },
+        { title:'📌 خلاصة القواعد', color:'gold',
+          rule:`<div class="mm-summary-list">
+            <b>1)</b> جواب الشرط في محل جزم يشترط أداة جازمة + اقتران بالفاء أو إذا الفجائية.<br>
+            <b>2)</b> إن لم يقترن الجواب بالفاء أو إذا رغم وجود أداة جازمة، فلا محل له من الإعراب.<br>
+            <b>3)</b> أدوات الشرط غير الجازمة (لو، لولا، كلّما، لمّا...) جوابها دائمًا لا محل له من الإعراب.
+          </div>` }
+      ],
+      MCQ:[], FILL:[], TF:[], EX:[],
+      actReminder:'<b>تذكّر:</b> جواب الشرط يكون في محل جزم فقط إذا اقترن بالفاء أو إذا الفجائية بعد أداة شرط جازمة؛ وفي كل الحالات الأخرى (أداة غير جازمة، أو عدم الاقتران بالفاء/إذا) يكون لا محل له من الإعراب.',
+      ACT:[
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'كل جملة جواب شرط تكون في محل جزم.',
+          blanks:[{ label:'الحكم', accept:['خطأ'], choices:['صواب','خطأ'] }],
+          answerHtml:'❌ خطأ: تكون في محل جزم بشروط، وإلا فلا محل لها من الإعراب.' },
+        { task:'اختر الإجابة الصحيحة:', text:'من يجتهد (فالنجاحُ حليفُه). ما حكم هذه الجملة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['في محل جزم جواب الشرط'], choices:['في محل جزم جواب الشرط','لا محل لها من الإعراب','في محل رفع خبر','في محل نصب حال']}],
+          answerHtml:'الجملة مسبوقة بأداة شرط جازمة «من» ومقترنة بالفاء، فهي في محل جزم.' },
+        { task:'عيّن حكم الجملة في المثال الآتي، مع بيان السبب:', text:'لمّا نزل المطرُ (نما الزرعُ).',
+          blanks:[{ label:'حكمها', accept:['لا محل لها من الإعراب'] },{ label:'السبب', accept:['لمّا أداة شرط غير جازمة','لأن لما غير جازمة'] }],
+          answerHtml:'<b>الحكم:</b> لا محل لها من الإعراب.<br><b>السبب:</b> «لمّا» أداة شرط غير جازمة.' },
+        { task:'عيّن حكم الجملة في المثال الآتي، مع بيان السبب:', text:'كلّما كنتَ مخلصًا (وثِق فيك الناسُ).',
+          blanks:[{ label:'حكمها', accept:['لا محل لها من الإعراب'] },{ label:'السبب', accept:['كلما أداة شرط غير جازمة','لأن كلما غير جازمة'] }],
+          answerHtml:'<b>الحكم:</b> لا محل لها من الإعراب.<br><b>السبب:</b> «كلّما» أداة شرط غير جازمة.' },
+        { task:'اختر من أدوات الشرط الجازمة:', text:'أيّ الأدوات التالية من أدوات الشرط الجازمة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['من'], choices:['لو','من','لمّا','كلّما'] }],
+          answerHtml:'«من» من أدوات الشرط الجازمة.' },
+        { task:'اختر من أدوات الشرط غير الجازمة:', text:'أيّ الأدوات التالية من أدوات الشرط غير الجازمة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['لولا'], choices:['مهما','إنْ','لولا','متى'] }],
+          answerHtml:'«لولا» من أدوات الشرط غير الجازمة.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'لجزم جواب الشرط الجازم يلزم أن يقترن بالفاء أو إذا الفجائية.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: هذا شرط أساسي ليكون الجواب في محل جزم.' },
+        { task:'اختر الإجابة الصحيحة:', text:'وإن لم يُعطَوا منها (إذا هم يسخطون). ما حكم هذه الجملة؟',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['في محل جزم جواب الشرط'], choices:['في محل جزم جواب الشرط','لا محل لها من الإعراب','في محل نصب','في محل رفع']}],
+          answerHtml:'الجملة مقترنة بـ«إذا» الفجائية بعد أداة شرط جازمة «إن»، فهي في محل جزم.' },
+        { task:'اختر الإجابة الصحيحة:', text:'إذا وُجدت أداة شرط جازمة لكن الجواب لم يقترن بالفاء ولا إذا، فحكمه:',
+          blanks:[{ label:'الإجابة الصحيحة', accept:['لا محل له من الإعراب'], choices:['في محل جزم','لا محل له من الإعراب','في محل رفع','في محل نصب']}],
+          answerHtml:'لا محل له من الإعراب رغم وجود الأداة الجازمة، لعدم اقترانه بالفاء أو إذا الفجائية.' },
+        { task:'أتمم الجملة الآتية بجملة جواب شرط مقترنة بالفاء، واذكر حكمها:', text:'إن تجتهدْ ...........',
+          blanks:[{ label:'الجملة المناسبة', accept:['فالنجاح حليفك','فسوف تنجح'] },{ label:'حكمها', accept:['في محل جزم جواب الشرط'] }],
+          answerHtml:'مثال: إن تجتهدْ <b>فالنجاحُ حليفُك</b> — في محل جزم جواب الشرط.' },
+        { task:'صواب أم خطأ؟ اقرأ العبارة الآتية وحدّد صحّتها:', text:'«لمّا» و«كلّما» من أدوات الشرط غير الجازمة.',
+          blanks:[{ label:'الحكم', accept:['صواب'], choices:['صواب','خطأ'] }],
+          answerHtml:'✅ صواب: كلتاهما من أدوات الشرط غير الجازمة.' }
+      ]
+    }
+  ];
+
+  /* =========================================================================================
+     الاختبار الشامل — أسئلة من التمرين الأول (تحديد الوظيفة الإعرابية للجمل الواقعة بين قوسين)
+     كل عنصر: q = الآية مع الجملة المطلوبة بلون مميّز، a = الإجابة النموذجية
+  ========================================================================================= */
+  const EXAM_FULL = [
+    { tag:'النبأ 17', q:'إِنَّ يَوْمَ الْفَصْلِ <mark class="b">كَانَ مِيقَاتًا</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'النبأ 18', q:'يَوْمَ <mark class="b">يُنفَخُ فِي الصُّورِ</mark> فَتَأْتُونَ أَفْوَاجًا', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النبأ 21', q:'إِنَّ جَهَنَّمَ <mark class="b">كَانَتْ مِرْصَادًا</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'النبأ 24', q:'لَّابِثِينَ فِيهَا أَحْقَابًا <mark class="b">لَّا يَذُوقُونَ فِيهَا بَرْدًا وَلَا شَرَابًا</mark>', a:'جملة فعلية في محل نصب حال من ضمير «لابثين».' },
+    { tag:'النبأ 27', q:'إِنَّهُمْ <mark class="b">كَانُوا لَا يَرْجُونَ حِسَابًا</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'النبأ 27', q:'إِنَّهُمْ كَانُوا <mark class="b">لَا يَرْجُونَ حِسَابًا</mark>', a:'جملة فعلية في محل نصب خبر «كان».' },
+    { tag:'النبأ 38', q:'<mark class="b">يَوْمَ يَقُومُ الرُّوحُ وَالْمَلَائِكَةُ صَفًّا لَّا يَتَكَلَّمُونَ إِلَّا مَنْ أَذِنَ لَهُ الرَّحْمَٰنُ وَقَالَ صَوَابًا</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النبأ 38', q:'يَوْمَ يَقُومُ الرُّوحُ وَالْمَلَائِكَةُ صَفًّا <mark class="b">لَّا يَتَكَلَّمُونَ</mark> إِلَّا مَنْ أَذِنَ لَهُ الرَّحْمَٰنُ وَقَالَ صَوَابًا', a:'جملة فعلية في محل نصب حال.' },
+    { tag:'النبأ 40', q:'<mark class="b">إِنَّا أَنذَرْنَاكُمْ عَذَابًا قَرِيبًا يَوْمَ يَنظُرُ الْمَرْءُ مَا قَدَّمَتْ يَدَاهُ وَيَقُولُ الْكَافِرُ يَا لَيْتَنِي كُنتُ تُرَابًا</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النبأ 40', q:'وَيَقُولُ الْكَافِرُ <mark class="b">يَا لَيْتَنِي كُنتُ تُرَابًا</mark>', a:'جملة اسمية مقول القول في محل نصب مفعول به للفعل «يقول».' },
+    { tag:'النبأ 40', q:'يَا لَيْتَنِي <mark class="b">كُنتُ تُرَابًا</mark>', a:'جملة فعلية في محل رفع خبر «ليت».' },
+    { tag:'النازعات 6', q:'<mark class="b">يَوْمَ تَرْجُفُ الرَّاجِفَةُ</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النازعات 6-7', q:'يَوْمَ تَرْجُفُ الرَّاجِفَةُ <mark class="b">تَتْبَعُهَا الرَّادِفَةُ</mark>', a:'جملة فعلية في محل نصب حال.' },
+    { tag:'النازعات 8-9', q:'قُلُوبٌ يَوْمَئِذٍ وَاجِفَةٌ <mark class="b">أَبْصَارُهَا خَاشِعَةٌ</mark>', a:'جملة اسمية في محل رفع خبر للمبتدأ «قلوب».' },
+    { tag:'النازعات 10', q:'يَقُولُونَ <mark class="b">أَإِنَّا لَمَرْدُودُونَ فِي الْحَافِرَةِ</mark>', a:'جملة اسمية مقول القول في محل نصب مفعول به للفعل «يقولون».' },
+    { tag:'النازعات 11', q:'<mark class="b">أَإِذَا كُنَّا عِظَامًا نَّخِرَةً</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النازعات 12', q:'قَالُوا <mark class="b">إِذًا تِلْكَ كَرَّةٌ خَاسِرَةٌ</mark>', a:'جملة اسمية مقول القول في محل نصب مفعول به للفعل «قالوا».' },
+    { tag:'النازعات 16', q:'<mark class="b">إِذْ نَادَاهُ رَبُّهُ بِالْوَادِ الْمُقَدَّسِ طُوًى</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النازعات 17', q:'اذْهَبْ إِلَىٰ فِرْعَوْنَ <mark class="b">إِنَّهُ طَغَىٰ</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'النازعات 18-19', q:'فَقُلْ <mark class="b">هَل لَّكَ إِلَىٰ أَن تَزَكَّىٰ وَأَهْدِيَكَ إِلَىٰ رَبِّكَ فَتَخْشَىٰ</mark>', a:'جملة اسمية مقول القول في محل نصب مفعول به للفعل «قل».' },
+    { tag:'النازعات 22', q:'ثُمَّ أَدْبَرَ <mark class="b">يَسْعَىٰ</mark>', a:'جملة فعلية في محل نصب حال من فاعل «أدبر».' },
+    { tag:'النازعات 24', q:'فَقَالَ <mark class="b">أَنَا رَبُّكُمُ الْأَعْلَىٰ</mark>', a:'جملة اسمية مقول القول في محل نصب مفعول به للفعل «قال».' },
+    { tag:'النازعات 35', q:'<mark class="b">يَوْمَ يَتَذَكَّرُ الْإِنسَانُ مَا سَعَىٰ</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النازعات 46', q:'كَأَنَّهُمْ <mark class="b">يَوْمَ يَرَوْنَهَا</mark> لَمْ يَلْبَثُوا إِلَّا عَشِيَّةً أَوْ ضُحَاهَا', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'النازعات 46', q:'كَأَنَّهُمْ يَوْمَ يَرَوْنَهَا <mark class="b">لَمْ يَلْبَثُوا إِلَّا عَشِيَّةً أَوْ ضُحَاهَا</mark>', a:'جملة فعلية في محل رفع خبر «كأنّ».' },
+    { tag:'عبس 3', q:'<mark class="b">وَمَا يُدْرِيكَ لَعَلَّهُ يَزَّكَّىٰ</mark>', a:'جملة فعلية في محل رفع خبر المبتدأ «ما».' },
+    { tag:'عبس 3', q:'وَمَا يُدْرِيكَ <mark class="b">لَعَلَّهُ يَزَّكَّىٰ</mark>', a:'جملة اسمية في محل نصب مفعول به ثانٍ لفعل «يدريك».' },
+    { tag:'عبس 3', q:'وَمَا يُدْرِيكَ لَعَلَّهُ <mark class="b">يَزَّكَّىٰ</mark>', a:'جملة فعلية في محل رفع خبر «لعلّ».' },
+    { tag:'عبس 5-6', q:'أَمَّا مَنِ اسْتَغْنَىٰ <mark class="b">فَأَنتَ لَهُ تَصَدَّىٰ</mark>', a:'جملة اسمية في محل رفع خبر المبتدأ «من».' },
+    { tag:'عبس 5-6', q:'أَمَّا مَنِ اسْتَغْنَىٰ فَأَنتَ <mark class="b">لَهُ تَصَدَّىٰ</mark>', a:'جملة فعلية في محل رفع خبر المبتدأ «أنت».' },
+    { tag:'عبس 8', q:'وَأَمَّا مَن جَاءَكَ <mark class="b">يَسْعَىٰ</mark>', a:'جملة فعلية في محل نصب حال من فاعل «جاءك».' },
+    { tag:'عبس 8-9', q:'وَأَمَّا مَن جَاءَكَ يَسْعَىٰ <mark class="b">وَهُوَ يَخْشَىٰ</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'عبس 8-9', q:'وَأَمَّا مَن جَاءَكَ يَسْعَىٰ وَهُوَ <mark class="b">يَخْشَىٰ</mark>', a:'جملة فعلية في محل رفع خبر «هو».' },
+    { tag:'عبس 10', q:'فَأَنتَ عَنْهُ <mark class="b">تَلَهَّىٰ</mark>', a:'جملة فعلية في محل رفع خبر المبتدأ «أنت».' },
+    { tag:'عبس 12', q:'فَمَن <mark class="b">شَاءَ ذَكَرَهُ</mark>', a:'جملة فعلية في محل رفع خبر المبتدأ «من».' },
+    { tag:'عبس 22', q:'ثُمَّ <mark class="b">إِذَا شَاءَ أَنشَرَهُ</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'عبس 33', q:'<mark class="b">فَإِذَا جَاءَتِ الصَّاخَّةُ</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'عبس 34', q:'<mark class="b">يَوْمَ يَفِرُّ الْمَرْءُ مِنْ أَخِيهِ</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'عبس 37', q:'لِكُلِّ امْرِئٍ مِّنْهُمْ يَوْمَئِذٍ شَأْنٌ <mark class="b">يُغْنِيهِ</mark>', a:'جملة فعلية في محل رفع نعت لـ«شأن».' },
+    { tag:'عبس 38-41', q:'وُجُوهٌ يَوْمَئِذٍ مُّسْفِرَةٌ ضَاحِكَةٌ مُّسْتَبْشِرَةٌ ۝ وَوُجُوهٌ يَوْمَئِذٍ عَلَيْهَا غَبَرَةٌ <mark class="b">تَرْهَقُهَا قَتَرَةٌ</mark>', a:'جملة فعلية في محل رفع خبر ثانٍ للمبتدأ «وجوه».' },
+    { tag:'عبس 40', q:'وَوُجُوهٌ يَوْمَئِذٍ <mark class="b">عَلَيْهَا غَبَرَةٌ</mark>', a:'جملة اسمية في محل رفع نعت لـ«وجوه».' },
+    { tag:'التكوير 1-13', q:'<mark class="b">إِذَا الشَّمْسُ كُوِّرَتْ ۝ وَإِذَا النُّجُومُ انكَدَرَتْ ۝ وَإِذَا الْجِبَالُ سُيِّرَتْ ۝ ... وَإِذَا الْجَنَّةُ أُزْلِفَتْ</mark>', a:'جملة اسمية في محل جرّ مضاف إليه.' },
+    { tag:'التكوير 17-18', q:'وَاللَّيْلِ إِذَا عَسْعَسَ وَالصُّبْحِ إِذَا <mark class="b">تَنَفَّسَ</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'التكوير 28', q:'لِمَن شَاءَ مِنكُمْ <mark class="b">أَن يَسْتَقِيمَ</mark>', a:'مصدر مؤوّل «أن يستقيم» في محل نصب مفعول به.' },
+    { tag:'الانفطار 19', q:'يَوْمَ لَا تَمْلِكُ نَفْسٌ لِّنَفْسٍ شَيْئًا <mark class="b">وَالْأَمْرُ يَوْمَئِذٍ لِّلَّهِ</mark>', a:'جملة اسمية في محل نصب حال من فاعل «تملك».' },
+    { tag:'الانفطار 19', q:'يَوْمَ <mark class="b">لَا تَمْلِكُ نَفْسٌ لِّنَفْسٍ شَيْئًا</mark> وَالْأَمْرُ يَوْمَئِذٍ لِّلَّهِ', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'المطففين 7-8', q:'كَلَّا إِنَّ كِتَابَ الْفُجَّارِ لَفِي سِجِّينٍ وَمَا أَدْرَاكَ <mark class="b">مَا سِجِّينٌ</mark>', a:'جملة اسمية في محل نصب مفعول به ثانٍ للفعل «أدراك».' },
+    { tag:'المطففين 13', q:'إِذَا تُتْلَىٰ عَلَيْهِ آيَاتُنَا قَالَ <mark class="b">أَسَاطِيرُ الْأَوَّلِينَ</mark>', a:'جملة اسمية مقول القول في محل نصب مفعول به للفعل «قال».' },
+    { tag:'المطففين 14', q:'كَلَّا بَلْ رَانَ عَلَىٰ قُلُوبِهِم مَّا كَانُوا <mark class="b">يَكْسِبُونَ</mark>', a:'جملة فعلية في محل نصب خبر «كان».' },
+    { tag:'المطففين 29', q:'إِنَّ الَّذِينَ أَجْرَمُوا كَانُوا مِنَ الَّذِينَ آمَنُوا <mark class="b">يَضْحَكُونَ</mark>', a:'جملة فعلية في محل نصب خبر «كانوا».' },
+    { tag:'المطففين 32', q:'وَإِذَا رَأَوْهُمْ قَالُوا <mark class="b">إِنَّ هَٰؤُلَاءِ لَضَالُّونَ</mark>', a:'جملة اسمية مقول القول في محل نصب مفعول به للفعل «قالوا».' },
+    { tag:'الانشقاق 13', q:'إِنَّهُ <mark class="b">كَانَ فِي أَهْلِهِ مَسْرُورًا</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'الانشقاق 14', q:'إِنَّهُ <mark class="b">ظَنَّ أَن لَّن يَحُورَ</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'الانشقاق 15', q:'إِنَّ رَبَّهُ <mark class="b">كَانَ بِهِ بَصِيرًا</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'البروج 6', q:'إِذْ <mark class="b">هُمْ عَلَيْهَا قُعُودٌ</mark>', a:'جملة اسمية في محل جرّ مضاف إليه.' },
+    { tag:'البروج 13', q:'إِنَّهُ <mark class="b">هُوَ يُبْدِئُ وَيُعِيدُ</mark>', a:'جملة اسمية في محل رفع خبر «إنّ».' },
+    { tag:'البروج 13', q:'إِنَّهُ هُوَ <mark class="b">يُبْدِئُ وَيُعِيدُ</mark>', a:'جملة فعلية في محل رفع خبر «هو».' },
+    { tag:'الطارق 6-7', q:'خُلِقَ مِن مَّاءٍ دَافِقٍ <mark class="b">يَخْرُجُ</mark> مِن بَيْنِ الصُّلْبِ وَالتَّرَائِبِ', a:'جملة فعلية في محل جرّ نعت لـ«ماء».' },
+    { tag:'الطارق 9', q:'<mark class="b">يَوْمَ تُبْلَى السَّرَائِرُ</mark>', a:'جملة فعلية في محل جرّ مضاف إليه.' },
+    { tag:'الطارق 15', q:'إِنَّهُمْ <mark class="b">يَكِيدُونَ كَيْدًا</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' }
+  ];
+
+  /* =========================================================================================
+     الاختبار الشامل الثاني — إعراب 100 جملة (بلوغ الأمل، الأستاذ محمد أبو شاكر)
+  ========================================================================================= */
+  const EXAM_FULL2 = [
+    { tag:'1', q:'نحن <mark class="b">نقصّ عليك أحسن القصص</mark>', a:'جملة فعلية في محل رفع خبر للمبتدأ.' },
+    { tag:'2', q:'إنّهم <mark class="b">كانوا لا يرجون حسابا</mark>', a:'جملة اسمية منسوخة في محل رفع خبر «إنّ».' },
+    { tag:'3', q:'فقالوا <mark class="b">ربّنا ربّ السماوات والأرض</mark>', a:'جملة مقول القول في محل نصب مفعول به.' },
+    { tag:'4', q:'وجعلنا الأنهار <mark class="b">تجري من تحتهم</mark>', a:'جملة فعلية في محل نصب مفعول به ثانٍ للفعل «جعل».' },
+    { tag:'5', q:'ولهم عذاب أليم بما كانوا <mark class="b">يكذبون</mark>', a:'جملة فعلية في محل نصب خبر «كان».' },
+    { tag:'6', q:'وتحسبهم أيقاظا <mark class="b">وهم رقود</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'7', q:'يوم <mark class="b">يُنفخ في الصور</mark> فتأتون أفواجا', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'8', q:'من يهد الله <mark class="b">فهو المهتدِ</mark>', a:'جملة اسمية في محل جزم جواب الشرط الجازم.' },
+    { tag:'9', q:'وإن تصبهم سيّئة بما قدّمت أيديهم <mark class="b">إذا هم يقنطون</mark>', a:'جملة اسمية في محل جزم جواب الشرط الجازم.' },
+    { tag:'10', q:'كان الرجل <mark class="b">يساعد الضعيف</mark>', a:'جملة فعلية في محل نصب خبر «كان».' },
+    { tag:'11', q:'لا تقربوا الصلاة <mark class="b">وأنتم سكارى</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'12', q:'والصبح إذا <mark class="b">تنفّس</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'13', q:'واذكروا إذ <mark class="b">كنتم قليلا فكثّركم</mark>', a:'جملة اسمية منسوخة في محل جر مضاف إليه.' },
+    { tag:'14', q:'يوم <mark class="b">يقوم الناس لرب العالمين</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'15', q:'يسعد المعلم حين <mark class="b">ينجح طلابه</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'16', q:'إن تسع في الخير <mark class="b">فسوف تنال الجزاء</mark>', a:'جملة فعلية في محل جزم جواب الشرط الجازم.' },
+    { tag:'17', q:'إن تسع في الخير <mark class="b">تلق الجزاء</mark>', a:'جملة فعلية جواب الشرط لا محل لها من الإعراب.' },
+    { tag:'18', q:'محمد <mark class="b">علمه غزير</mark>', a:'جملة اسمية في محل رفع خبر للمبتدأ.' },
+    { tag:'19', q:'رأيت فلاحا <mark class="b">يزرع أرضه</mark>', a:'جملة فعلية في محل نصب نعت.' },
+    { tag:'20', q:'رأيت الفلاح <mark class="b">يزرع أرضه</mark>', a:'جملة فعلية في محل نصب حال.' },
+    { tag:'21', q:'الشرّ <mark class="b">قليله كثير</mark>', a:'جملة اسمية في محل رفع خبر للمبتدأ.' },
+    { tag:'22', q:'ظننتُك <mark class="b">تدعوني</mark>', a:'جملة فعلية في محل نصب مفعول به ثانٍ للفعل «ظنّ».' },
+    { tag:'23', q:'من يتق الله <mark class="b">فإنه سعيد</mark>', a:'جملة اسمية في محل جزم جواب الشرط الجازم.' },
+    { tag:'24', q:'إن تفعل الخير <mark class="b">تُسمُ نفسك</mark>', a:'جملة فعلية جواب الشرط لا محل لها من الإعراب.' },
+    { tag:'25', q:'الطالب <mark class="b">يتثقّف</mark> ويتدرّب', a:'جملة فعلية في محل رفع خبر للمبتدأ.' },
+    { tag:'26', q:'إنّه <mark class="b">يعلم الجهر</mark> وما يخفى', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'27', q:'يكاد البرق <mark class="b">يخطف أبصارهم</mark>', a:'جملة فعلية في محل نصب خبر «يكاد».' },
+    { tag:'28', q:'حضر الطالب <mark class="b">كتابه في يده</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'29', q:'وماتوا <mark class="b">وهم فاسقون</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'30', q:'خطب فينا رجلٌ <mark class="b">لسانه فصيح</mark>', a:'جملة اسمية في محل رفع نعت.' },
+    { tag:'31', q:'واتقوا يوما <mark class="b">ترجعون فيه إلى الله</mark>', a:'جملة فعلية في محل نصب نعت.' },
+    { tag:'32', q:'رأيتك يوم <mark class="b">اشتريت المحفظة</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'33', q:'من يُضلل الله <mark class="b">فلا هادي له</mark>', a:'جملة اسمية في محل جزم جواب الشرط الجازم.' },
+    { tag:'34', q:'وإن لم يُعطَوا منها <mark class="b">إذا هم يسخطون</mark>', a:'جملة اسمية في محل جزم جواب الشرط الجازم.' },
+    { tag:'35', q:'يوم <mark class="b">تبيضّ وجوه</mark> وتسودّ وجوه', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'36', q:'واقتلوهم حيث <mark class="b">ثقفتموهم</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'37', q:'أم كنتم شهداء إذ <mark class="b">حضر يعقوبَ الموتُ</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'38', q:'وجاء رجلٌ من أقصى المدينة <mark class="b">يسعى</mark>', a:'جملة فعلية في محل رفع نعت.' },
+    { tag:'39', q:'حسبتُ <mark class="b">أنّك مسافر</mark>', a:'جملة اسمية منسوخة في محل نصب، سدّت مسدّ مفعولَي «حسب».' },
+    { tag:'40', q:'شاهدت لوحة <mark class="b">رسومها معبّرة</mark>', a:'جملة اسمية في محل نصب نعت.' },
+    { tag:'41', q:'إذا جاد المرء <mark class="b">ساد</mark>', a:'جملة فعلية جواب الشرط لا محل لها من الإعراب.' },
+    { tag:'42', q:'النشاط <mark class="b">يورث الغنى</mark>', a:'جملة فعلية في محل رفع خبر للمبتدأ.' },
+    { tag:'43', q:'إن تقنع <mark class="b">تسعد</mark>', a:'جملة فعلية جواب الشرط لا محل لها من الإعراب.' },
+    { tag:'44', q:'من استعان بك <mark class="b">فأعنه</mark>', a:'جملة فعلية في محل جزم جواب الشرط الجازم.' },
+    { tag:'45', q:'أصغيت إلى القوم حين <mark class="b">تكلّموا</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'46', q:'قال المتّهم: <mark class="b">إنّي بريء</mark>', a:'جملة مقول القول في محل نصب مفعول به.' },
+    { tag:'47', q:'لنا دارٌ <mark class="b">حديقتها فسيحة</mark>', a:'جملة اسمية في محل رفع نعت.' },
+    { tag:'48', q:'أقمنا حيث <mark class="b">طاب الهواء</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'49', q:'قدِمَ الطيّار <mark class="b">وهو مستبشر</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'50', q:'كان <mark class="b">يمسك</mark> عن الطعام وهو يشتهيه', a:'جملة فعلية في محل نصب خبر «كان».' },
+    { tag:'51', q:'كان يمسك عن الطعام <mark class="b">وهو يشتهيه</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'52', q:'كان يمسك عن الطعام وهو <mark class="b">يشتهيه</mark>', a:'جملة فعلية في محل رفع خبر.' },
+    { tag:'53', q:'أسكنوهنّ من حيث <mark class="b">سكنتم</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'54', q:'إنّ الله <mark class="b">يأمركم</mark> أن تذبحوا بقرة', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'55', q:'الإنسان <mark class="b">يتعلّم من تجاربه</mark>', a:'جملة فعلية في محل رفع خبر للمبتدأ.' },
+    { tag:'56', q:'كثرة الضحك <mark class="b">تُذهب الهيبة</mark>', a:'جملة فعلية في محل رفع خبر للمبتدأ.' },
+    { tag:'57', q:'خال المسافر الأشجار <mark class="b">تسير</mark>', a:'جملة فعلية في محل نصب مفعول به ثانٍ للفعل «خال».' },
+    { tag:'58', q:'ذهبت إلى المدرسة رغم <mark class="b">أني مريض</mark>', a:'جملة اسمية منسوخة في محل جر مضاف إليه.' },
+    { tag:'59', q:'وإن يمسسك بخير <mark class="b">فهو على كل شيء قدير</mark>', a:'جملة اسمية في محل جزم جواب الشرط الجازم.' },
+    { tag:'60', q:'لئن أكله الذئب <mark class="b">ونحن عصبة</mark> إنّا إذًا لخاسرون', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'61', q:'التنافس <mark class="b">يحفّز العزائم</mark>', a:'جملة فعلية في محل رفع خبر.' },
+    { tag:'62', q:'ذهبوا إلى حيث <mark class="b">تعمل</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'63', q:'سبّح بحمد ربك حين <mark class="b">تقوم</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'64', q:'ألم تر <mark class="b">أنّ الله أنزل</mark> من السماء ماءً', a:'جملة اسمية منسوخة في محل نصب، سدّت مسدّ مفعولَي «رأى».' },
+    { tag:'65', q:'ألم تر أنّ الله <mark class="b">أنزل</mark> من السماء ماءً', a:'جملة فعلية في محل رفع خبر «أنّ».' },
+    { tag:'66', q:'كأنّك <mark class="b">قد خُلقت</mark> كما تشاء', a:'جملة فعلية في محل رفع خبر «كأنّ».' },
+    { tag:'67', q:'وجعلنا الأنهار <mark class="b">تجري</mark> من تحتهم', a:'جملة فعلية في محل نصب مفعول به ثانٍ للفعل «جعل».' },
+    { tag:'68', q:'وأنذر الناس يوم <mark class="b">يأتيهم العذاب</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'69', q:'فمن يؤمن بربّه <mark class="b">فلا يخاف بخسا ولا رهقا</mark>', a:'جملة اسمية في محل جزم جواب الشرط الجازم.' },
+    { tag:'70', q:'قال الأستاذ: <mark class="b">طعم النجاح حلو</mark>', a:'جملة مقول القول في محل نصب مفعول به.' },
+    { tag:'71', q:'ما انفكّ فلان <mark class="b">يضمر العداوة لك</mark>', a:'جملة فعلية في محل نصب خبر «ما انفكّ».' },
+    { tag:'72', q:'هل أدلّكم على تجارة <mark class="b">تنجيكم</mark>', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'73', q:'يكاد زيتها <mark class="b">يضيء</mark> ولو لم تمسسه نار', a:'جملة فعلية في محل نصب خبر «يكاد».' },
+    { tag:'74', q:'سارعوا إلى جنة <mark class="b">عرضها السماوات والأرض</mark>', a:'جملة اسمية في محل جر نعت.' },
+    { tag:'75', q:'علّمتك <mark class="b">تحب الفقراء</mark>', a:'جملة فعلية في محل نصب مفعول به ثانٍ للفعل «علّم».' },
+    { tag:'76', q:'اذكر نصيحة أبيك إذ <mark class="b">سافر</mark>', a:'جملة فعلية في محل جر مضاف إليه.' },
+    { tag:'77', q:'إنّ الله <mark class="b">يحبّ الصابرين</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'78', q:'لكنّ الشباب <mark class="b">يُتّهمون</mark> بأنّهم لا يعملون', a:'جملة فعلية في محل رفع خبر «لكنّ».' },
+    { tag:'79', q:'طفق العلماء <mark class="b">يكتشفون</mark> دواء للسكري', a:'جملة فعلية في محل نصب خبر «طفق».' },
+    { tag:'80', q:'وددت <mark class="b">لو تحمّلت مسؤولية فعلك</mark>', a:'مصدر مؤول في محل نصب مفعول به.' },
+    { tag:'81', q:'نُعدّكم لحمل الأمانة <mark class="b">وهي ثقيلة</mark>', a:'جملة اسمية في محل نصب حال.' },
+    { tag:'82', q:'ولِما تعودون به من علم <mark class="b">يصحبه فخر</mark>', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'83', q:'إنّ آباءكم <mark class="b">يتخيّلون</mark> من وراء هجرتكم', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'84', q:'التقنية <mark class="b">تقدّم فُرصا</mark> تعليمية للأطفال', a:'جملة فعلية في محل رفع خبر للمبتدأ.' },
+    { tag:'85', q:'أجرى العلماء دراسات أثبتت <mark class="b">أنّ التقنية..</mark>', a:'جملة اسمية منسوخة في محل نصب مفعول به.' },
+    { tag:'86', q:'التقنية والأطفال <mark class="b">كلاهما يمثّل المستقبل</mark>', a:'جملة اسمية في محل رفع خبر للمبتدأ.' },
+    { tag:'87', q:'إنّه <mark class="b">قد يغيّر العالم إلى الأفضل</mark>', a:'جملة فعلية في محل رفع خبر «إنّ».' },
+    { tag:'88', q:'وجب على من يشارك فيها <mark class="b">أن يتحلّى بالآداب</mark>', a:'مصدر مؤول في محل رفع فاعل.' },
+    { tag:'89', q:'كان <mark class="b">يضمر الإقدام</mark> على ممارسات لا يريد تحمّلها', a:'جملة فعلية في محل نصب خبر «كان».' },
+    { tag:'90', q:'كان يضمر الإقدام على ممارسات <mark class="b">لا يريد تحمّلها</mark>', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'91', q:'في عالم <mark class="b">يشهد عصرا</mark> من النمو الاقتصادي', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'92', q:'تسمح <mark class="b">أن تتعرّض أعداد كبيرة</mark>', a:'جملة مصدرية في محل نصب مفعول به.' },
+    { tag:'93', q:'إلحاق أطفالها بأعمال <mark class="b">قد لا تتناسب</mark>', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'94', q:'تقول الإحصاءات أيضا: <mark class="b">إنّ 19٪ من أطفال..</mark>', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'95', q:'لأنّ المشكلات الاقتصادية <mark class="b">تفرض نفسها</mark>', a:'جملة فعلية في محل رفع خبر «أنّ».' },
+    { tag:'96', q:'في حاجة إلى عمل <mark class="b">يؤدّي</mark>', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'97', q:'علينا أن نتساءل: <mark class="b">ماذا حدث للمجتمع؟</mark>', a:'جملة فعلية في محل جر نعت.' },
+    { tag:'98', q:'أصبحت قيمة العمل <mark class="b">لا تحتلّ مكانتها</mark>', a:'جملة فعلية في محل نصب خبر «أصبح».' },
+    { tag:'99', q:'وأنّهم <mark class="b">يتّجهون</mark> إلى مجالات الكسب', a:'جملة فعلية في محل رفع خبر «أنّ».' },
+    { tag:'100', q:'أثبتت <mark class="b">أنّ الأفراد هم نتاج بيئتهم</mark>', a:'جملة اسمية منسوخة في محل نصب مفعول به.' },
+    { tag:'101', q:'إنْ أعربت هذه الجمل <mark class="b">نلتَ العلامة الكاملة</mark>', a:'جملة فعلية جواب الشرط لا محل لها من الإعراب.' }
+  ];
+
+
+  /* =========================================================================================
+     التنقّل بين الرئيسية ودرس معيّن
+  ========================================================================================= */
+  const homeView = document.getElementById('homeView');
+  const lessonView = document.getElementById('lessonView');
+  const lessonGrid = document.getElementById('lessonGrid');
+  let currentLesson = null;
+
+  function progressPct(lesson){
+    try{
+      const name = (document.getElementById('studentName').value || localStorage.getItem('jomal_lastName') || '').trim();
+      if(!name) return null;
+      const db = JSON.parse(localStorage.getItem('jomal_progress_v1')) || {};
+      const records = (db[lesson.id] && db[lesson.id][name]) || [];
+      if(!records.length) return null;
+      return records[records.length-1].overall;
+    }catch(e){ return null; }
+  }
+
+  function renderResultsPanel(){
+    const list = document.getElementById('resultsList');
+    list.innerHTML = '';
+    LESSONS.forEach(lesson=>{
+      const pct = progressPct(lesson);
+      const row = document.createElement('div');
+      row.className = 'result-row';
+      let scoreHtml;
+      if(pct === null){
+        scoreHtml = `<span class="rr-score none">لم تبدأ بعد</span>`;
+      } else {
+        const band = pct >= 70 ? 'good' : (pct >= 40 ? 'mid' : 'low');
+        scoreHtml = `<span class="rr-score ${band}">${pct}%</span>`;
+      }
+      row.innerHTML = `<span class="rr-name">${lesson.title}</span>${scoreHtml}`;
+      list.appendChild(row);
+    });
+  }
+
+  function renderHome(){
+    lessonGrid.innerHTML = '';
+    LESSONS.forEach(lesson=>{
+      const card = document.createElement('div');
+      card.className = 'lesson-card';
+      card.style.background = `linear-gradient(150deg, ${lightenColor(lesson.badgeColor, 18)}, ${lesson.badgeColor} 55%, ${darkenColor(lesson.badgeColor, 12)})`;
+      const pct = progressPct(lesson);
+      const progressHtml = pct === null
+        ? `<div class="lc-progress">لم تبدأ بعد</div>`
+        : `<div class="lc-progress">✅ تقدّمك: ${pct}%</div>`;
+      card.innerHTML = `
+        <div class="lc-badge">${lesson.icon || '📘'}</div>
+        <div class="lc-title">${lesson.title}</div>
+        <div class="lc-desc">${lesson.subtitle.replace('<br>',' ')}</div>
+        ${progressHtml}
+      `;
+      card.addEventListener('click', ()=> showLesson(lesson.id));
+      lessonGrid.appendChild(card);
+    });
+    const soon = document.createElement('div');
+    soon.className = 'lesson-card soon';
+    soon.innerHTML = `<div class="lc-badge">➕</div><div class="lc-title">دروس قادمة</div><div class="lc-desc">قريبًا…</div>`;
+    lessonGrid.appendChild(soon);
+    renderResultsPanel();
+  }
+
+  function lightenColor(hex, amt){ return shiftColor(hex, amt); }
+  function darkenColor(hex, amt){ return shiftColor(hex, -amt); }
+  function shiftColor(hex, amt){
+    let c = hex.replace('#','');
+    if(c.length===3) c = c.split('').map(ch=>ch+ch).join('');
+    const num = parseInt(c, 16);
+    let r = (num >> 16) + amt, g = ((num >> 8) & 0x00FF) + amt, b = (num & 0x0000FF) + amt;
+    r = Math.max(0, Math.min(255, r)); g = Math.max(0, Math.min(255, g)); b = Math.max(0, Math.min(255, b));
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function showHome(){
+    currentLesson = null;
+    document.getElementById('lvVideo').src = '';
+    homeView.style.display = '';
+    lessonView.style.display = 'none';
+    document.getElementById('examFullView').style.display = 'none';
+    document.getElementById('examFull2View').style.display = 'none';
+    ['navMindmap','navListen','navAct','navFinal'].forEach(id=>{
+      document.getElementById(id).style.display = 'none';
+    });
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  }
+
+  function buildYtSrc(v){
+    let src = `https://www.youtube.com/embed/${v.yt}?rel=0`;
+    if(v.start) src += `&start=${v.start}`;
+    if(v.end) src += `&end=${v.end}`;
+    return src;
+  }
+  function setLessonVideos(lesson){
+    const videos = Array.isArray(lesson.video) ? lesson.video : [lesson.video];
+    const tabsBox = document.getElementById('videoTabs');
+    const frame = document.getElementById('lvVideo');
+    tabsBox.innerHTML = '';
+    if(videos.length > 1){
+      tabsBox.style.display = 'flex';
+      videos.forEach((v, i)=>{
+        const tab = document.createElement('div');
+        tab.className = 'video-tab' + (i===0 ? ' active' : '');
+        tab.textContent = v.label || `الجزء ${i+1}`;
+        tab.addEventListener('click', ()=>{
+          tabsBox.querySelectorAll('.video-tab').forEach(t=>t.classList.remove('active'));
+          tab.classList.add('active');
+          frame.src = buildYtSrc(v);
+        });
+        tabsBox.appendChild(tab);
+      });
+    } else {
+      tabsBox.style.display = 'none';
+    }
+    frame.src = buildYtSrc(videos[0]);
+  }
+  function showLesson(id){
+    const lesson = LESSONS.find(l=>l.id===id);
+    if(!lesson) return;
+    currentLesson = lesson;
+    homeView.style.display = 'none';
+    lessonView.style.display = 'block';
+    const hasVideo = !!lesson.video;
+
+    document.getElementById('navMindmap').style.display = 'inline-block';
+    document.getElementById('navListen').style.display = hasVideo ? 'inline-block' : 'none';
+    document.getElementById('navAct').style.display = 'inline-block';
+    document.getElementById('navFinal').style.display = 'inline-block';
+    document.getElementById('listen').style.display = hasVideo ? '' : 'none';
+
+    document.title = lesson.title + ' | الجمل التي لها محل من الإعراب';
+    document.getElementById('lvTitle').textContent = lesson.title;
+    document.getElementById('lvSubtitle').innerHTML = lesson.subtitle;
+    document.getElementById('lvDef').innerHTML = lesson.def;
+    if(hasVideo){ setLessonVideos(lesson); } else { document.getElementById('lvVideo').src = ''; }
+
+    renderMindmap(lesson);
+    setupExercises(lesson);
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  }
+
+  document.querySelectorAll('[data-go-home]').forEach(btn=> btn.addEventListener('click', showHome));
+
+  /* =========================================================================================
+     محرك الاختبار الشامل (عام) — يُستخدم لكل من «الاختبار الشامل» و«إعراب 100 جملة»
+     تصحيح تلقائي بالصوت + تلميحات + متابعة التقدّم
+  ========================================================================================= */
+  const AR_STOPWORDS = new Set(['جمله','في','محل','ل','و','او','أو','هذا','هذه','ذلك','التي','الذي','لام','من']);
+  const ALL_EXAM_VIEW_IDS = ['examFullView','examFull2View'];
+
+  function extractCoreTerms(answerText){
+    const plain = answerText.replace(/<[^>]+>/g,'');
+    const norm = normalizeAr(plain);
+    const seen = new Set();
+    norm.split(' ').forEach(tok=>{
+      if(tok.length >= 2 && !AR_STOPWORDS.has(tok)) seen.add(tok);
+    });
+    return Array.from(seen);
+  }
+
+  function gradeExamAnswer(transcript, item){
+    const norm = normalizeAr(transcript);
+    if(!norm) return false;
+    const given = new Set(norm.split(' ').filter(Boolean));
+    if(item.core.length === 0) return false;
+    let hits = 0;
+    item.core.forEach(t=>{ if(given.has(t)) hits++; });
+    return (hits / item.core.length) >= 0.6;
+  }
+
+  function mistakeHint(answerText){
+    const a = answerText;
+    if(a.includes('مضاف إليه')) return '💡 تذكّر: الجملة الواقعة مباشرة بعد ظرف مثل «يوم، إذ، حين» أو بعد كلمات كـ«رغم، مع، غير» تكون في محل جرّ مضاف إليه.';
+    if(a.includes('مقول القول')) return '💡 تذكّر: الجملة الواقعة بعد فعل من أفعال القول (قال، يقول، قالوا) تكون في محل نصب مفعول به (مقول القول).';
+    if(a.includes('خبر «إنّ»') || a.includes('خبر إنّ') || a.includes('خبر «إنّ».') || /خبر\s*«?(إنّ|أنّ|لكنّ|كأنّ)/.test(a)) return '💡 تذكّر: إذا سبقت الجملةَ «إنّ» أو إحدى أخواتها الحرفية، فهي في محل رفع خبر لها.';
+    if(a.includes('خبر «كان»') || a.includes('خبر كان') || a.includes('خبر كانوا') || /خبر\s*«?(كان|يكاد|طفق|أصبح|ما انفكّ)/.test(a)) return '💡 تذكّر: إذا سبقت الجملةَ «كان» أو إحدى أخواتها الفعلية، فهي في محل نصب خبر لها.';
+    if(a.includes('جزم جواب الشرط')) return '💡 تذكّر: جواب الشرط يكون في محل جزم إذا كانت أداة الشرط جازمة ولم يقترن الجواب بالفاء، وإلا فلا محل له من الإعراب.';
+    if(a.includes('حال')) return '💡 تذكّر: الجملة التي تبيّن هيئة صاحبها وقت وقوع الفعل، وتقع بعد معرفة، تكون في محل نصب حال.';
+    if(a.includes('نعت')) return '💡 تذكّر: الجملة الواقعة بعد اسم نكرة تصفه تكون في محل رفع أو نصب أو جرّ نعتًا حسب موقع الموصوف.';
+    if(a.includes('مصدر مؤول')) return '💡 تذكّر: «أنْ + الفعل المضارع» تُؤوَّل بمصدر، ويأخذ هذا المصدر موقعًا إعرابيًا في الجملة حسب موقعه.';
+    if(a.includes('سدّت مسدّ')) return '💡 تذكّر: بعد أفعال القلوب (ظنّ، حسب، رأى العلمية) تقع جملة اسمية منسوخة تسدّ مسدّ مفعولَي الفعل.';
+    if(a.includes('مفعول به')) return '💡 تذكّر: الجملة الواقعة بعد فعل يحتاج مفعولًا به تسدّ مسدّه وتُعرب في محلّه.';
+    return '💡 راجع نوع الجملة (فعلية/اسمية) والأداة أو الفعل الذي قبلها لتحديد محلّها الإعرابي بدقّة.';
+  }
+
+  function shuffleArr(arr){
+    const a = arr.slice();
+    for(let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]] = [a[j],a[i]];
+    }
+    return a;
+  }
+
+  function hideAllExamViews(){
+    ALL_EXAM_VIEW_IDS.forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.style.display = 'none';
+    });
+  }
+
+  function createExamEngine(data, ids){
+    data.forEach(item=>{ if(!item.core) item.core = extractCoreTerms(item.a); });
+    const view = document.getElementById(ids.view);
+    let order = [], index = 0, score = 0, wrong = 0, answered = false, results = [];
+
+    function renderDots(){
+      const wrap = document.getElementById(ids.dots);
+      wrap.innerHTML = '';
+      order.forEach((_, i)=>{
+        const dot = document.createElement('span');
+        dot.className = 'ef-dot';
+        if(results[i] === 'correct') dot.classList.add('correct');
+        else if(results[i] === 'wrong') dot.classList.add('wrong');
+        if(i === index) dot.classList.add('current');
+        wrap.appendChild(dot);
+      });
+    }
+
+    function start(){
+      order = shuffleArr(data.map((_,i)=>i));
+      index = 0; score = 0; wrong = 0;
+      results = new Array(order.length).fill(null);
+      homeView.style.display = 'none';
+      lessonView.style.display = 'none';
+      hideAllExamViews();
+      view.style.display = 'block';
+      document.getElementById(ids.final).classList.remove('show');
+      document.getElementById(ids.card).style.display = '';
+      view.querySelector('.exam-full-controls').style.display = '';
+      view.querySelector('.exam-full-progress-wrap').style.display = '';
+      document.getElementById(ids.scorebar).style.display = '';
+      document.getElementById(ids.dots).style.display = '';
+      renderCard();
+      window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+    }
+
+    function renderCard(){
+      const item = data[order[index]];
+      answered = false;
+      document.getElementById(ids.progress).textContent = `السؤال ${index+1} / ${data.length}`;
+      document.getElementById(ids.scorebar).innerHTML = `✅ ${score} &nbsp;|&nbsp; ❌ ${wrong}`;
+      document.getElementById(ids.tag).textContent = item.tag;
+      document.getElementById(ids.question).innerHTML = item.q;
+      document.getElementById(ids.answer).innerHTML = `<b>الإجابة الصحيحة:</b> ${item.a}`;
+      document.getElementById(ids.answer).classList.remove('show');
+      document.getElementById(ids.heard).classList.remove('show');
+      document.getElementById(ids.heard).textContent = '';
+      document.getElementById(ids.verdict).classList.remove('show','ok','no');
+      document.getElementById(ids.verdict).textContent = '';
+      document.getElementById(ids.hint).classList.remove('show');
+      document.getElementById(ids.hint).textContent = '';
+      document.getElementById(ids.micBtn).style.display = SRClass ? '' : 'none';
+      document.getElementById(ids.noMic).classList.toggle('show', !SRClass);
+      document.getElementById(ids.micBtn).classList.remove('recording');
+      document.getElementById(ids.micBtn).textContent = '🎙️ سجّل إجابتك الآن';
+      document.getElementById(ids.nextBtn).classList.remove('show');
+      renderDots();
+    }
+
+    function mark(correct){
+      if(answered) return;
+      answered = true;
+      results[index] = correct ? 'correct' : 'wrong';
+      if(correct) score++; else wrong++;
+      document.getElementById(ids.scorebar).innerHTML = `✅ ${score} &nbsp;|&nbsp; ❌ ${wrong}`;
+      document.getElementById(ids.micBtn).style.display = 'none';
+
+      const verdict = document.getElementById(ids.verdict);
+      verdict.classList.add('show', correct ? 'ok' : 'no');
+      verdict.textContent = correct ? '✅ أحسنت! إجابتك صحيحة' : '❌ إجابتك غير دقيقة';
+      if(correct) beepSuccess(); else beepError();
+
+      if(!correct){
+        document.getElementById(ids.answer).classList.add('show');
+        const item = data[order[index]];
+        const hint = document.getElementById(ids.hint);
+        hint.textContent = mistakeHint(item.a);
+        hint.classList.add('show');
+      }
+
+      document.getElementById(ids.nextBtn).classList.add('show');
+      renderDots();
+    }
+
+    document.getElementById(ids.micBtn).addEventListener('click', ()=>{
+      if(!SRClass || answered) return;
+      const micBtn = document.getElementById(ids.micBtn);
+      if(micBtn.classList.contains('recording')) return;
+      const item = data[order[index]];
+      const recognition = new SRClass();
+      recognition.lang = 'ar-SA';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      micBtn.classList.add('recording');
+      micBtn.textContent = '🔴 يستمع الآن… تحدّث الآن';
+      recognition.onresult = (e)=>{
+        const transcript = e.results[0][0].transcript;
+        const heard = document.getElementById(ids.heard);
+        heard.textContent = `🗣️ سمعتُ: «${transcript}»`;
+        heard.classList.add('show');
+        const correct = gradeExamAnswer(transcript, item);
+        mark(correct);
+      };
+      recognition.onerror = ()=>{
+        micBtn.classList.remove('recording');
+        micBtn.textContent = '🎙️ سجّل إجابتك الآن';
+      };
+      recognition.onend = ()=>{
+        micBtn.classList.remove('recording');
+        micBtn.textContent = '🎙️ سجّل إجابتك الآن';
+      };
+      recognition.start();
+    });
+
+    document.getElementById(ids.nextBtn).addEventListener('click', ()=>{
+      if(index < data.length - 1){
+        index++;
+        renderCard();
+        window.scrollTo({top:0, behavior:'smooth'});
+      } else {
+        finish();
+      }
+    });
+
+    function finish(){
+      document.getElementById(ids.card).style.display = 'none';
+      view.querySelector('.exam-full-controls').style.display = 'none';
+      view.querySelector('.exam-full-progress-wrap').style.display = 'none';
+      document.getElementById(ids.scorebar).style.display = 'none';
+      document.getElementById(ids.dots).style.display = 'none';
+      const total = data.length;
+      const pct = Math.round((score/total)*100);
+      document.getElementById(ids.circle).textContent = pct + '%';
+      let msg;
+      if(pct >= 85) msg = `ما شاء الله! أجبت بشكل ممتاز 🌟<br>✅ ${score} صحيحة &nbsp;|&nbsp; ❌ ${wrong} خاطئة من أصل ${total}`;
+      else if(pct >= 60) msg = `أداء جيد! راجع الأخطاء وحاول مرة أخرى 💪<br>✅ ${score} صحيحة &nbsp;|&nbsp; ❌ ${wrong} خاطئة من أصل ${total}`;
+      else msg = `تحتاج إلى مزيد من المراجعة، لا تيأس وحاول من جديد 🌱<br>✅ ${score} صحيحة &nbsp;|&nbsp; ❌ ${wrong} خاطئة من أصل ${total}`;
+      document.getElementById(ids.text).innerHTML = msg;
+      document.getElementById(ids.final).classList.add('show');
+    }
+
+    document.getElementById(ids.restartBtn).addEventListener('click', start);
+    document.getElementById(ids.launch).addEventListener('click', start);
+
+    return { start };
+  }
+
+  createExamEngine(EXAM_FULL, {
+    view:'examFullView', launch:'examFullLaunch', progress:'efProgress', scorebar:'efScorebar',
+    dots:'efDots', card:'efCard', tag:'efTag', question:'efQuestion', answer:'efAnswer',
+    heard:'efHeard', verdict:'efVerdict', hint:'efHint', micBtn:'efMicBtn', noMic:'efNoMic',
+    nextBtn:'efNextBtn', final:'efFinal', circle:'effCircle', text:'effText', restartBtn:'efRestartBtn'
+  });
+
+  createExamEngine(EXAM_FULL2, {
+    view:'examFull2View', launch:'examFull2Launch', progress:'eg2Progress', scorebar:'eg2Scorebar',
+    dots:'eg2Dots', card:'eg2Card', tag:'eg2Tag', question:'eg2Question', answer:'eg2Answer',
+    heard:'eg2Heard', verdict:'eg2Verdict', hint:'eg2Hint', micBtn:'eg2MicBtn', noMic:'eg2NoMic',
+    nextBtn:'eg2NextBtn', final:'eg2Final', circle:'eg2Circle', text:'eg2Text', restartBtn:'eg2RestartBtn'
+  });
+
+  document.getElementById('navMindmap').addEventListener('click', ()=>{
+    document.getElementById('mindmap').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('navListen').addEventListener('click', ()=>{
+    document.getElementById('listen').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  /* =========================================================================================
+     الخريطة الذهنية الهرمية
+  ========================================================================================= */
+  function renderMindmap(lesson){
+    const wrap = document.getElementById('mmWrap');
+    wrap.innerHTML = '';
+
+    const root = document.createElement('div');
+    root.className = 'mm-root';
+    root.innerHTML = `<div class="mm-root-box"><b>${lesson.title}</b><span>${lesson.subtitle.replace('<br>',' ')}</span></div>`;
+    wrap.appendChild(root);
+
+    const branchesWrap = document.createElement('div');
+    branchesWrap.className = 'mm-branches';
+    lesson.tree.forEach((branch, bi)=>{
+      branchesWrap.appendChild(renderBranch(branch, bi===0));
+    });
+    wrap.appendChild(branchesWrap);
+  }
+
+  function renderBranch(branch, openByDefault){
+    const det = document.createElement('details');
+    det.className = 'mm-branch c-' + (branch.color || 'blue');
+    det.open = branch.open !== undefined ? branch.open : !!openByDefault;
+
+    const summary = document.createElement('summary');
+    summary.innerHTML = `<span class="mm-branch-title">${branch.title}</span><span class="chev">▾</span>`;
+    det.appendChild(summary);
+
+    const body = document.createElement('div');
+    body.className = 'mm-branch-body';
+    if(branch.rule) body.innerHTML += `<div class="mm-rule">${branch.rule}</div>`;
+    if(branch.example) body.innerHTML += `<div class="mm-example">${branch.example}</div>`;
+
+    if(branch.children && branch.children.length){
+      const childWrap = document.createElement('div');
+      childWrap.className = 'mm-children';
+      branch.children.forEach(ch=>{
+        const c = document.createElement('div');
+        c.className = 'mm-leaf';
+        c.innerHTML = `
+          <span class="mm-leaf-title">${ch.title}</span>
+          ${ch.rule ? `<div class="mm-leaf-rule">${ch.rule}</div>` : ''}
+          ${ch.example ? `<div class="mm-leaf-example">${ch.example}</div>` : ''}
+        `;
+        childWrap.appendChild(c);
+      });
+      body.appendChild(childWrap);
+    }
+    det.appendChild(body);
+    return det;
+  }
+
+  /* =========================================================================================
+     أدوات مشتركة: تطبيع النص العربي + مقارنة الكلمات
+  ========================================================================================= */
+  function normalizeAr(s){
+    return (s||'')
+      .replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u08D4-\u08E1\u08E3-\u08FF]/g,'')
+      .replace(/[إأآٱا]/g,'ا')
+      .replace(/ى/g,'ي')
+      .replace(/ة/g,'ه')
+      .replace(/ؤ/g,'و')
+      .replace(/ئ/g,'ي')
+      .replace(/[^ابتثجحخدذرزسشصضطظعغفقكلمنهويء\s]/g,'')
+      .replace(/\s+/g,' ')
+      .trim();
+  }
+  function exactMatch(given, acceptList){
+    const g = normalizeAr(given);
+    if(!g) return false;
+    return acceptList.some(a => normalizeAr(a) === g);
+  }
+
+  let audioCtx = null;
+  function beepError(){
+    try{
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const t0 = audioCtx.currentTime;
+      [220, 165].forEach((freq, i)=>{
+        const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+        osc.type = 'square'; osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.001, t0 + i*0.14);
+        gain.gain.linearRampToValueAtTime(0.12, t0 + i*0.14 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, t0 + i*0.14 + 0.13);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(t0 + i*0.14); osc.stop(t0 + i*0.14 + 0.15);
+      });
+    }catch(e){}
+  }
+  function beepSuccess(){
+    try{
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const t0 = audioCtx.currentTime;
+      [523, 784].forEach((freq, i)=>{
+        const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain();
+        osc.type = 'sine'; osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.001, t0 + i*0.1);
+        gain.gain.linearRampToValueAtTime(0.1, t0 + i*0.1 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, t0 + i*0.1 + 0.18);
+        osc.connect(gain); gain.connect(audioCtx.destination);
+        osc.start(t0 + i*0.1); osc.stop(t0 + i*0.1 + 0.2);
+      });
+    }catch(e){}
+  }
+
+  /* =========================================================================================
+     قراءة صوتية (Text-to-Speech)
+  ========================================================================================= */
+  let arVoice = null;
+  function pickVoice(){
+    const voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+    arVoice = voices.find(v=>/^ar/i.test(v.lang)) || null;
+  }
+  if(window.speechSynthesis){
+    pickVoice();
+    speechSynthesis.onvoiceschanged = pickVoice;
+  }
+  function speakText(text, btn){
+    if(!window.speechSynthesis){ alert('القراءة الصوتية غير مدعومة في هذا المتصفح'); return; }
+    speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'ar-SA';
+    if(arVoice) utter.voice = arVoice;
+    utter.rate = 0.92;
+    if(btn) btn.classList.add('speaking');
+    utter.onend = ()=>{ if(btn) btn.classList.remove('speaking'); };
+    utter.onerror = ()=>{ if(btn) btn.classList.remove('speaking'); };
+    speechSynthesis.speak(utter);
+  }
+  function cleanText(el){
+    return el ? el.textContent.replace(/\s+/g,' ').trim() : '';
+  }
+
+  document.getElementById('hubSpeakBtn').addEventListener('click', (e)=>{
+    speakText(cleanText(document.getElementById('lvDef')), e.currentTarget);
+  });
+
+  /* =========================================================================================
+     نوافذ التمارين المنبثقة (Modals)
+  ========================================================================================= */
+  function openModal(id){
+    const modal = document.getElementById(id);
+    if(!modal) return;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(modalEl){
+    modalEl.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('[data-modal]').forEach(btn=>{
+    btn.addEventListener('click', ()=> openModal(btn.getAttribute('data-modal')));
+  });
+  document.querySelectorAll('.modal-overlay').forEach(overlay=>{
+    overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(overlay); });
+    const closeBtn = overlay.querySelector('[data-close]');
+    if(closeBtn) closeBtn.addEventListener('click', ()=> closeModal(overlay));
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.modal-overlay.show').forEach(o=> closeModal(o));
+    }
+  });
+
+  /* =========================================================================================
+     بناء النشاط ديناميكيًا حسب الدرس المفتوح
+  ========================================================================================= */
+  let actScore=0, actTotal=0;
+  const SRClass = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  function setupExercises(lesson){
+    actScore=0; actTotal=0;
+    renderActivities(lesson);
+    renderHistory(document.getElementById('studentName').value.trim());
+  }
+
+  function renderActivities(lesson){
+    const list = document.getElementById('actList');
+    list.innerHTML = '';
+    const reminderBox = document.getElementById('actReminder');
+    if(lesson.actReminder){
+      reminderBox.innerHTML = lesson.actReminder;
+      reminderBox.style.display = 'block';
+    } else {
+      reminderBox.style.display = 'none';
+    }
+    actTotal = lesson.ACT.length;
+    document.getElementById('actScoreEl').textContent = 0;
+    document.getElementById('actTotalEl').textContent = 20;
+
+    lesson.ACT.forEach((activity, ai)=>{
+      const card = document.createElement('div');
+      card.className = 'act-card';
+      const num = String(ai+1).padStart(2,'0');
+      card.innerHTML = `
+        <div class="qn">
+          <span class="num">${num}</span>
+          <span class="task">${activity.task}</span>
+        </div>
+        <div class="act-text">${activity.text}</div>
+        <div class="act-blanks"></div>
+        <div class="act-answer">${activity.answerHtml}</div>
+      `;
+      const blanksWrap = card.querySelector('.act-blanks');
+      let doneCount = 0, scored = false;
+
+      activity.blanks.forEach((b)=>{
+        const row = document.createElement('div');
+        row.className = 'act-blank';
+        row.innerHTML = `
+          <div class="blabel">${b.label}</div>
+          <div class="fill-row">
+            <input type="text" placeholder="اكتب الإجابة هنا…">
+            <button class="mic-blank-btn" title="أجب شفهيًا">🎙️</button>
+            <button class="check-blank-btn">تحقق</button>
+          </div>
+          <div class="act-chips"></div>
+          <div class="fill-feedback"></div>
+        `;
+        const input = row.querySelector('input');
+        const checkBtn = row.querySelector('.check-blank-btn');
+        const micBtn = row.querySelector('.mic-blank-btn');
+        const fb = row.querySelector('.fill-feedback');
+        const chipsWrap = row.querySelector('.act-chips');
+        let blankScored = false;
+
+        function markCorrect(){
+          if(blankScored) return;
+          blankScored = true;
+          doneCount++;
+          if(doneCount === activity.blanks.length && !scored){
+            scored = true; actScore++;
+            document.getElementById('actScoreEl').textContent = Math.round((actScore/actTotal)*20);
+          }
+        }
+
+        function check(){
+          const ok = exactMatch(input.value, b.accept);
+          input.classList.remove('ok','bad');
+          input.classList.add(ok ? 'ok' : 'bad');
+          fb.classList.add('show');
+          if(ok){
+            fb.innerHTML = '✅ إجابة صحيحة!';
+            beepSuccess();
+            markCorrect();
+          } else {
+            fb.innerHTML = '❌ حاول مرة أخرى، أو استعن بالاقتراحات أدناه.';
+            beepError();
+          }
+        }
+        checkBtn.addEventListener('click', check);
+        input.addEventListener('keydown', e=>{ if(e.key==='Enter') check(); });
+
+        if(!SRClass || (Array.isArray(b.choices) && b.choices.length)){
+          micBtn.remove();
+        } else {
+          micBtn.addEventListener('click', ()=>{
+            if(micBtn.classList.contains('recording')) return;
+            const recognition = new SRClass();
+            recognition.lang = 'ar-SA';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+            micBtn.classList.add('recording');
+            micBtn.textContent = '🔴';
+            recognition.onresult = (e)=>{
+              const transcript = e.results[0][0].transcript;
+              input.value = transcript;
+              check();
+            };
+            recognition.onerror = ()=>{
+              micBtn.classList.remove('recording');
+              micBtn.textContent = '🎙️';
+            };
+            recognition.onend = ()=>{
+              micBtn.classList.remove('recording');
+              micBtn.textContent = '🎙️';
+            };
+            recognition.start();
+          });
+        }
+
+        if(Array.isArray(b.choices) && b.choices.length){
+          const choices = b.choices.slice().sort(()=> Math.random()-0.5);
+          choices.forEach(choice=>{
+            const chip = document.createElement('button');
+            chip.className = 'act-chip';
+            chip.textContent = choice;
+            chip.addEventListener('click', ()=>{
+              const isRight = exactMatch(choice, b.accept);
+              chipsWrap.querySelectorAll('.act-chip').forEach(c=> c.disabled = true);
+              chip.classList.add(isRight ? 'correct' : 'wrong');
+              input.value = choice;
+              fb.classList.add('show');
+              if(isRight){
+                fb.innerHTML = '✅ إجابة صحيحة!';
+                input.classList.remove('bad'); input.classList.add('ok');
+                beepSuccess();
+                markCorrect();
+              } else {
+                fb.innerHTML = '❌ ليست هذه الإجابة الصحيحة، حاول مرة أخرى أو اكتب إجابتك بنفسك.';
+                input.classList.remove('ok'); input.classList.add('bad');
+                beepError();
+              }
+            });
+            chipsWrap.appendChild(chip);
+          });
+        } else {
+          chipsWrap.remove();
+        }
+
+        blanksWrap.appendChild(row);
+      });
+
+      list.appendChild(card);
+    });
+
+    const revealAllWrap = document.createElement('div');
+    revealAllWrap.className = 'act-revealall-wrap';
+    revealAllWrap.innerHTML = `<button class="act-reveal-btn" id="actRevealAllBtn">📖 انتهيتُ من حل جميع الأنشطة — أظهر الإجابات النموذجية</button>`;
+    list.appendChild(revealAllWrap);
+    const revealAllBtn = revealAllWrap.querySelector('#actRevealAllBtn');
+    revealAllBtn.addEventListener('click', ()=>{
+      const showing = revealAllBtn.classList.toggle('active');
+      list.querySelectorAll('.act-answer').forEach(box=> box.classList.toggle('show', showing));
+      revealAllBtn.textContent = showing
+        ? '🙈 إخفاء الإجابات النموذجية'
+        : '📖 انتهيتُ من حل جميع الأنشطة — أظهر الإجابات النموذجية';
+      if(showing) revealAllWrap.scrollIntoView({behavior:'smooth', block:'center'});
+    });
+  }
+
+  /* =========================================================================================
+     اسم التلميذ + حفظ التقدّم محليًا (لكل درس مفتاح مستقل ضمن قاعدة واحدة)
+  ========================================================================================= */
+  const PROGRESS_KEY = 'jomal_progress_v1';
+  const LAST_NAME_KEY = 'jomal_lastName';
+
+  function loadProgressDB(){
+    try{ return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {}; }
+    catch(e){ return {}; }
+  }
+  function saveProgressDB(db){
+    try{ localStorage.setItem(PROGRESS_KEY, JSON.stringify(db)); }catch(e){}
+  }
+
+  const nameInput = document.getElementById('studentName');
+  const historyBox = document.getElementById('studentHistory');
+
+  function renderHistory(name){
+    if(!currentLesson) return;
+    const db = loadProgressDB();
+    const lessonDb = db[currentLesson.id] || {};
+    const records = lessonDb[name] || [];
+    if(!name){
+      historyBox.innerHTML = 'لا توجد محاولات سابقة بعد — اكتب اسمك وابدأ النشاط! 🌱';
+      return;
+    }
+    if(records.length === 0){
+      historyBox.innerHTML = `لا توجد محاولات سابقة باسم <b>${name}</b> في هذا الدرس — هذه أول مرة! 🌱 أنهِ النشاط واضغط زر النتيجة النهائية.`;
+      return;
+    }
+    const last = records[records.length-1];
+    historyBox.innerHTML = `آخر نتيجة محفوظة باسم <b>${name}</b> في هذا الدرس: <b>${last.overall}%</b> (بتاريخ ${last.date}) — حاول أن تتفوق عليها اليوم! 💪`;
+  }
+
+  try{
+    const savedName = localStorage.getItem(LAST_NAME_KEY);
+    if(savedName) nameInput.value = savedName;
+  }catch(e){}
+
+  nameInput.addEventListener('change', ()=>{
+    const n = nameInput.value.trim();
+    try{ localStorage.setItem(LAST_NAME_KEY, n); }catch(e){}
+    renderHistory(n);
+    renderHome();
+  });
+
+  document.getElementById('finishBtn').addEventListener('click', ()=>{
+    if(!currentLesson) return;
+    const lesson = currentLesson;
+    const name = nameInput.value.trim();
+    if(!name){
+      alert('من فضلك اكتب اسمك في الخانة أعلى الصفحة أولًا 👤');
+      nameInput.focus();
+      nameInput.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+    const actPct = Math.round((actScore / actTotal) * 100);
+    const overall = actPct;
+
+    const db = loadProgressDB();
+    db[lesson.id] = db[lesson.id] || {};
+    const records = db[lesson.id][name] || [];
+    const prev = records.length ? records[records.length-1] : null;
+    records.push({ date: new Date().toLocaleDateString('ar-EG'), overall, act:actPct });
+    db[lesson.id][name] = records.slice(-10);
+    saveProgressDB(db);
+    renderHome();
+    try{ localStorage.setItem(LAST_NAME_KEY, name); }catch(e){}
+
+    let deltaHtml;
+    if(prev){
+      const diff = overall - prev.overall;
+      if(diff > 0){
+        deltaHtml = `<div class="delta up">📈 تطورت في استيعاب الدرس! ارتفعت نسبتك ${diff} نقطة عن المحاولة السابقة (${prev.overall}% ← ${overall}%). أحسنت يا ${name}!</div>`;
+      } else if(diff < 0){
+        deltaHtml = `<div class="delta down">📉 انخفضت نسبتك ${Math.abs(diff)} نقطة عن المحاولة السابقة (${prev.overall}% ← ${overall}%). راجع الدرس وحاول مرة أخرى، أنت قادر!</div>`;
+      } else {
+        deltaHtml = `<div class="delta same">➡️ نفس نسبة محاولتك السابقة (${overall}%). حاول تحسينها في المرة القادمة!</div>`;
+      }
+    } else {
+      deltaHtml = `<div class="delta first">🌱 هذه أول محاولة لك يا ${name} في هذا الدرس، بالتوفيق في تحسين نتيجتك في المرة القادمة!</div>`;
+    }
+
+    const breakdownHtml = `<div>🧩 النشاط: ${Math.round((actScore/actTotal)*20)}/20 (${actPct}%)</div>`;
+    const resultBox = document.getElementById('finalResult');
+    resultBox.innerHTML = `
+      <div class="overall-circle">${overall}%</div>
+      <div class="breakdown">
+        ${breakdownHtml}
+      </div>
+      ${deltaHtml}
+    `;
+    resultBox.classList.add('show');
+    renderHistory(name);
+    resultBox.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  /* =========================================================================================
+     تثبيت التطبيق (PWA install prompt)
+  ========================================================================================= */
+  let deferredInstallPrompt = null;
+  const installBtn = document.getElementById('installBtn');
+  const installToast = document.getElementById('installToast');
+  const installToastText = document.getElementById('installToastText');
+  const installToastGo = document.getElementById('installToastGo');
+  const installToastClose = document.getElementById('installToastClose');
+
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const ua = navigator.userAgent || '';
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/.test(ua);
+  const isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(ua);
+
+  if(isStandalone){
+    installBtn.classList.add('hide');
+  }
+
+  window.addEventListener('beforeinstallprompt', (e)=>{
+    e.preventDefault();
+    deferredInstallPrompt = e;
+    if(!sessionStorage.getItem('installDismissed')){
+      showToast('📲 ثبّتي «إعراب الجمل» على شاشتك الرئيسية لفتحه كأي تطبيق آخر', true);
+    }
+  });
+
+  function showToast(html, withGoButton){
+    installToastText.innerHTML = html;
+    installToastGo.style.display = withGoButton ? 'inline-block' : 'none';
+    installToastGo.textContent = 'تثبيت';
+    installToast.classList.add('show');
+  }
+
+  async function triggerNativeInstall(){
+    installToast.classList.remove('show');
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+  }
+
+  function showManualInstructions(){
+    if(isIOS && isSafari){
+      showToast('📲 لتثبيت «إعراب الجمل»: اضغط زر <b>المشاركة</b> (المربع والسهم للأعلى) بشريط سفاري، ثم اختر <b>«إضافة إلى الشاشة الرئيسية»</b>.', false);
+    } else if(isIOS && !isSafari){
+      showToast('📲 افتح هذه الصفحة عبر متصفح <b>Safari</b> ثم اضغط زر المشاركة واختر <b>«إضافة إلى الشاشة الرئيسية»</b> لتثبيت التطبيق.', false);
+    } else if(isAndroid){
+      showToast('📲 لتثبيت «إعراب الجمل»: افتح قائمة المتصفح (⋮) واختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.', false);
+    } else {
+      showToast('📲 لتثبيت «إعراب الجمل»: ابحث عن أيقونة التثبيت ⭳ في شريط عنوان المتصفح، أو افتح القائمة واختر <b>«تثبيت التطبيق»</b>.', false);
+    }
+  }
+
+  installBtn.addEventListener('click', ()=>{
+    if(deferredInstallPrompt){
+      triggerNativeInstall();
+    } else {
+      showManualInstructions();
+    }
+  });
+  installToastGo.addEventListener('click', ()=>{
+    if(deferredInstallPrompt) triggerNativeInstall();
+  });
+  installToastClose.addEventListener('click', ()=>{
+    installToast.classList.remove('show');
+    sessionStorage.setItem('installDismissed','1');
+  });
+  window.addEventListener('appinstalled', ()=>{
+    installBtn.classList.add('hide');
+    installToast.classList.remove('show');
+  });
+
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', ()=>{
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    });
+  }
+
+  /* =========================================================================================
+     الإقلاع
+  ========================================================================================= */
+  renderHome();
+</script>
+</body>
+</html>
